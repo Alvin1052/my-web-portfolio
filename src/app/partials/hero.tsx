@@ -38,7 +38,7 @@ const Hero = () => {
                 across all platforms.
               </div>
             </div>
-            <Button className='w-full md:w-71.75'>
+            <Button className='h-14 w-full md:w-71.75'>
               <Image
                 src={'/icons/mail.svg'}
                 alt='mail'

@@ -20,7 +20,10 @@ const UsedTools = () => {
               into real products.
             </p>
           </div>
-          <Button> Send Message</Button>
+          <Button className='h-14'>
+            <Image src={'/icons/mail.svg'} alt='mail' width={16} height={16} />
+            Send Message
+          </Button>
         </div>
         {/* Scroll */}
 

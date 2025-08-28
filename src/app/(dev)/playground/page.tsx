@@ -2,6 +2,10 @@
 import { Charm } from 'next/font/google';
 import Image from 'next/image';
 
+import Carouseltest from '@/components/experiment/Carouseltest';
+import WindowSizeViewer, {
+  MyComponent,
+} from '@/components/experiment/currentwidth';
 import TableTest from '@/components/experiment/tabletest';
 import CarouselJourney from '@/components/Services/journeyCarousel';
 import GridRows from '@/components/Services/TrustVoice-Grid';
@@ -14,8 +18,8 @@ const charm = Charm({
 });
 const PlaygoundPage = () => {
   return (
-    <div className='custom-container flex flex-col gap-6 py-10 md:gap-12 md:py-20'>
-      <div className='relative'>
+    <div className='flex flex-col gap-6 py-10'>
+      <div className='custom-container relative'>
         {/* Content */}
         <div className='relative z-50 mb-15 flex flex-col-reverse items-center justify-center gap-6 md:mb-21 md:flex-row'>
           {/* Text */}
@@ -72,13 +76,18 @@ const PlaygoundPage = () => {
         <div className='to-primary-300/50 absolute top-0 left-0 z-10 h-full w-full bg-gradient-to-tl from-black from-50% to-100%' />
         <div className='bg-hero-pattern absolute top-0 left-0 z-1 h-full w-full' />
       </div>
-      <div className='relative'>
+      <div className='custom-container relative'>
         <TableTest />
       </div>
-      <div className='relative overflow-hidden'>
+      <div className='custom-container relative'>
         <CarouselJourney />
       </div>
-      <GridRows />
+      <div className='custom-container relative'>
+        <GridRows />
+      </div>
+      <div className='custom-container relative'>
+        <Carouseltest />
+      </div>
     </div>
   );
 };

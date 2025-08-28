@@ -7,8 +7,8 @@ import { ScrollArea, ScrollBar } from '../ui/scroll-area';
 
 const TestingScroll = () => {
   return (
-    <div>
-      <ScrollArea className='flex h-132.5 w-160.5 flex-col gap-6'>
+    <div className=''>
+      <ScrollArea className='flex h-132.5 w-160.5 gap-6'>
         <div className='flex flex-col gap-3.75'>
           {ToolItems.map((item, i) => (
             <div key={item.name} className='flex flex-col gap-3.75'>

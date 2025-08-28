@@ -1,20 +1,29 @@
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
+import { cn } from '@/lib/utils';
+
 interface CardProps {
   title: string;
   year: string;
   description: string;
   companyImage: string | StaticImageData;
+  className?: string;
 }
 const Card: React.FC<CardProps> = ({
   companyImage,
   description,
   title,
   year,
+  className,
 }) => {
   return (
-    <div className='relative flex w-90.25 flex-col justify-center gap-5 border border-neutral-900 p-5 md:w-141'>
+    <div
+      className={cn(
+        'relative flex w-90.25 flex-col justify-center gap-5 border border-neutral-900 p-5 md:w-141',
+        className
+      )}
+    >
       {/* Position */}
       <div className='flex w-full items-center justify-between'>
         <div className='flex flex-col gap-1'>

@@ -1,6 +1,7 @@
 'use client';
-import GridRows from '@/components/Services/TrustVoice-Grid';
 
+import ContactUs from './partials/contact-us';
+import Faq from './partials/faq';
 import Header from './partials/header';
 import Hero from './partials/hero';
 import Journey from './partials/journey';
@@ -23,6 +24,8 @@ export default function Home() {
       <Portfolio />
       <Journey />
       <TrustedVoice />
+      <Faq />
+      <ContactUs />
     </div>
   );
 }

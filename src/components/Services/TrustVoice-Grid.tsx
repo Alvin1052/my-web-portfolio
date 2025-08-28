@@ -7,9 +7,9 @@ import { cn } from '@/lib/utils';
 const GridRows = () => {
   return (
     <div className='relative flex flex-col gap-10'>
-      <div className='flex gap-4'>
+      <div className='flex flex-wrap gap-4 md:flex-nowrap'>
         {/* Card 1 */}
-        <div className='to-primary-300 flex w-112 items-center justify-center bg-gradient-to-tl from-[#000000] from-0% to-80% p-0.25'>
+        <div className='to-primary-300 flex items-center justify-center bg-gradient-to-tl from-[#000000] from-0% to-80% p-0.25 md:w-112'>
           <Card
             {...TrustedVoiceList[0]}
             className='to-primary-300/20 w-full border-0 bg-linear-[-45deg] from-transparent from-0% to-90%'
@@ -17,13 +17,13 @@ const GridRows = () => {
         </div>
 
         {/* Group */}
-        <div className='flex w-184 flex-col gap-4'>
+        <div className='flex flex-col flex-wrap gap-4 md:w-183 md:flex-nowrap'>
           {/* Card 2 */}
-          <div className='h-91.75 w-full'>
+          <div className='w-full md:h-91.75'>
             <Card {...TrustedVoiceList[1]} index={1} />
           </div>
           {/* Group */}
-          <div className='flex w-full gap-4'>
+          <div className='flex w-full flex-wrap gap-4 md:flex-nowrap'>
             {/* card 3 */}
             <div className='w-full'>
               <Card {...TrustedVoiceList[2]} />
@@ -54,38 +54,37 @@ const Card: React.FC<CardProps> = ({ index, className, ...item }) => {
   return (
     <div
       className={cn(
-        'flex h-full w-full flex-col justify-between border border-neutral-900 bg-black p-5',
+        'flex h-full w-full flex-col justify-between gap-6 border border-neutral-900 bg-black p-5 md:gap-0',
         className
       )}
     >
       {/* Description */}
       <div className='flex flex-col gap-2'>
         {item.title !== '' && (
-          <div className='display-lg-bold'>{item.title}</div>
+          <div className='md:display-lg-bold display-sm-bold'>{item.title}</div>
         )}
         <div
-          className={cn('display-xs-bold', index === 1 && 'text-lg-semibold')}
+          className={cn(
+            'md:display-xs-bold text-lg-bold',
+            index !== 0 && 'text-lg-semibold'
+          )}
         >
           {item.subtitle}
         </div>
-        <div className='flex gap-1'>
+        <div className='flex gap-0.5 md:gap-1'>
           {Array(item.star)
             .fill(0)
             .map((_, index) => (
-              <div key={index}>⭐️</div>
+              <div key={index} className='size-4 md:size-6'>
+                ⭐️
+              </div>
             ))}
         </div>
-        <p className='text-md-regular bg-red-300 text-start'>
-          {item.description}
-        </p>
-        <p className='text-md-regular max-w-[692px]!'>
-          Edwin's expertise in frontend development is remarkable. He brings
-          creativity and innovation to the table, ensuring that every project is
-          not only functional but also visually appealing.
-        </p>
+        <p className='text-sm-regular md:text-md-regular'>{item.description}</p>
       </div>
       {/* Profile */}
       <div className='flex items-end justify-between'>
+        {/* Profile Details */}
         <div className='flex flex-col gap-4'>
           <Image
             src={item.profileImage}
@@ -94,10 +93,15 @@ const Card: React.FC<CardProps> = ({ index, className, ...item }) => {
             height={48}
           />
           <div>
-            <div className='text-md-semibold'>{item.ProfileName}</div>
-            <div className='text-md-regular'>{item.profileJob}</div>
+            <div className='text-sm-semibold md:text-md-semibold'>
+              {item.ProfileName}
+            </div>
+            <div className='text-sm-regular md:text-md-regular'>
+              {item.profileJob}
+            </div>
           </div>
         </div>
+        {/* Quotes */}
         <Image
           src={'/icons/quote-icon.svg'}
           alt='quote'
