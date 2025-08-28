@@ -3,9 +3,6 @@ import { Charm } from 'next/font/google';
 import Image from 'next/image';
 
 import Carouseltest from '@/components/experiment/Carouseltest';
-import WindowSizeViewer, {
-  MyComponent,
-} from '@/components/experiment/currentwidth';
 import TableTest from '@/components/experiment/tabletest';
 import CarouselJourney from '@/components/Services/journeyCarousel';
 import GridRows from '@/components/Services/TrustVoice-Grid';

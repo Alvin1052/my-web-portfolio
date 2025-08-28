@@ -1,5 +1,3 @@
-import { px } from 'motion';
-import { div } from 'motion/react-client';
 import { useEffect, useRef, useState } from 'react';
 import useMedia from 'use-media';
 

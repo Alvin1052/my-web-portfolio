@@ -15,7 +15,7 @@ const Faq = () => {
   const itemWidth: number = 252;
   const itemGap: number = 20;
   const totalItems: number = FaqList.length;
-  const [isActive, setIsActive] = useState<boolean>(false);
+  // const [isActive, setIsActive] = useState<boolean>(false);
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
