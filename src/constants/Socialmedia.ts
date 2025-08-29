@@ -13,16 +13,16 @@ export const socialMedia: SocialMedia[] = [
   {
     name: 'Instagram',
     link: '/',
-    icon: '/icons/Instagram.svg',
+    icon: '/icons/instagram.svg',
   },
   {
     name: 'LinkedIn',
     link: '/',
-    icon: '/icons/LinkedIn.svg',
+    icon: '/icons/linkedin.svg',
   },
   {
     name: 'Tiktok',
     link: '/',
-    icon: '/icons/Tiktok.svg',
+    icon: '/icons/tiktok.svg',
   },
 ];
