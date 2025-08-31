@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import SocialMedia from '@/components/Services/SocialMedia';
+import SocialMedia from '@/components/SocialMedia';
 
 import { ProfileItem } from '@/constants/ProfileItem';
 

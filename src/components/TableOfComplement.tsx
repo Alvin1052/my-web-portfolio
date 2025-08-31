@@ -10,7 +10,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '../ui/table';
+} from './ui/table';
 
 const TableCompare = ({ className }: { className?: string }) => {
   return (

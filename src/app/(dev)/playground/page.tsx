@@ -3,9 +3,10 @@ import { Charm } from 'next/font/google';
 import Image from 'next/image';
 
 import Carouseltest from '@/components/experiment/Carouseltest';
+import Announcement from '@/components/experiment/dialog';
 import TableTest from '@/components/experiment/tabletest';
-import CarouselJourney from '@/components/Services/journeyCarousel';
-import GridRows from '@/components/Services/TrustVoice-Grid';
+import CarouselJourney from '@/components/journeyCarousel';
+import GridRows from '@/components/TrustVoice-Grid';
 import { Button } from '@/components/ui/button';
 
 const charm = Charm({
@@ -84,6 +85,10 @@ const PlaygoundPage = () => {
       </div>
       <div className='custom-container relative'>
         <Carouseltest />
+      </div>
+
+      <div className='mx-auto'>
+        <Announcement />
       </div>
     </div>
   );

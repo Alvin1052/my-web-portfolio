@@ -41,7 +41,7 @@ const Faq = () => {
     }
   });
   return (
-    <div className='flex items-center justify-center'>
+    <div className='flex items-center justify-center overflow-hidden'>
       <div className='flex flex-col gap-6 py-10 md:w-300 md:gap-12 md:py-20'>
         {/* Title */}
         <div className='flex w-full flex-col items-start gap-6.25 md:flex-row md:items-center md:justify-between'>
@@ -79,7 +79,7 @@ const Faq = () => {
         <div className='flex'>
           <div
             ref={carouselRef}
-            className={`flex h-89 overflow-hidden md:h-116.5 md:gap-4 md:w-[${totalItems * itemWidth}px]`}
+            className={`flex h-89 md:h-116.5 md:gap-4 md:w-[${totalItems * itemWidth}px]`}
           >
             {FaqList.map((item, index) => (
               <div

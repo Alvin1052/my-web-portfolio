@@ -4,8 +4,8 @@ import useMedia from 'use-media';
 import { JourneyList } from '@/constants/Journey';
 import { cn } from '@/lib/utils';
 
-import { Button } from '../ui/button';
-import Card from '../ui/card';
+import { Button } from './ui/button';
+import Card from './ui/card';
 
 const CarouselJourney = () => {
   const carouselRef = useRef<HTMLDivElement>(null);

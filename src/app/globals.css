@@ -265,6 +265,16 @@
     background-repeat: repeat;
     background-size: 10%;
   }
+  .bg-dialog-pattern {
+    background-image: url('/pattern/hero-pattern.png');
+    background-repeat: repeat;
+    background-size: 5%;
+  }
+  .bg-contact-pattern {
+    background-image: url('/pattern/Pattern-contact.png');
+
+    background-size: 6%;
+  }
 }
 
 img {

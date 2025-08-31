@@ -1,5 +1,5 @@
 import Section from '@/components/Layout/Section';
-import TableCompare from '@/components/Services/TableOfComplement';
+import TableCompare from '@/components/TableOfComplement';
 
 const MyType = () => {
   return (

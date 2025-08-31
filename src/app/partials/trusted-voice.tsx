@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Section from '@/components/Layout/Section';
-import GridRows from '@/components/Services/TrustVoice-Grid';
+import GridRows from '@/components/TrustVoice-Grid';
 
 const TrustedVoice = () => {
   return (

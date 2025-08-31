@@ -14,7 +14,7 @@ import UsedTools from './partials/used-tools';
 
 export default function Home() {
   return (
-    <div className='h-500'>
+    <div className=''>
       <Header />
       <Hero />
       <SkillMarque />
