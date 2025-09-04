@@ -56,7 +56,7 @@ const Hero = () => {
           style={{ width: 'clamp(15.75rem, 23.68vw, 21.31rem)' }}
         >
           <Image
-            src={'/images/personal.png'}
+            src='/images/personal.png'
             alt='hero'
             width={341}
             height={671}
