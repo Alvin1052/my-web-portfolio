@@ -1,5 +1,5 @@
-import Section from '@/components/Layout/Section';
 import CarouselJourney from '@/components/journeyCarousel';
+import Section from '@/components/Layout/Section';
 
 const Journey = () => {
   return (

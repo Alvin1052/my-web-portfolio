@@ -63,7 +63,7 @@ const CarouselJourney = () => {
 
     return () =>
       carousel.removeEventListener('transitionend', handleTransitionEnd);
-  }, [currentIndex, totalItems]);
+  }, [currentIndex, totalItems, itemWidth, ItemGap]);
 
   return (
     <div className={`relative flex w-full flex-col gap-5 md:gap-12`}>
