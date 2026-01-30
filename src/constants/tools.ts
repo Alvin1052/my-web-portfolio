@@ -37,7 +37,7 @@ export const ToolItems: ToolProps[] = [
   },
   {
     name: 'React',
-    icon: '/icons/react.svg',
+    icon: '/icons/React.svg',
     percentage: 80,
   },
 ];

@@ -1,7 +1,11 @@
+'use client';
+
 import { Charm } from 'next/font/google';
 import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
+
+import Gambar from '../../assets/images/personal.png';
 
 const charm = Charm({
   weight: '400',

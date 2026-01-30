@@ -10,6 +10,7 @@ export const useForms = () => {
   const [serverError, setServerError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isFailed, setIsFailed] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
