@@ -35,7 +35,7 @@ export const ToolItems: ToolProps[] = [
   },
   {
     name: 'MongoDB',
-    icon: '/icons/React.svg',
+    icon: img2,
     percentage: 80,
   },
   {
