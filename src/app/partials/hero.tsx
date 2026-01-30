@@ -2,6 +2,7 @@
 
 import { Charm } from 'next/font/google';
 import Image from 'next/image';
+import hero from '/images/personal.png';
 
 import { Button } from '@/components/ui/button';
 
@@ -59,12 +60,7 @@ const Hero = () => {
           className='md:flex-[3] md:-translate-x-[73px]'
           style={{ width: 'clamp(15.75rem, 23.68vw, 21.31rem)' }}
         >
-          <Image
-            src='/images/personal.png'
-            alt='hero'
-            width={341}
-            height={671}
-          />
+          <Image src={Gambar} alt='hero' width={341} height={671} />
         </div>
       </div>
 
