@@ -1,6 +1,6 @@
 import CSS from '../../public/icons/css.svg';
 import MongoDb from '../../public/icons/mongodb.svg';
-import Sequalize from '../../public/icons/Sequalize.svg';
+import Sequelize from '../../public/icons/sequalize.svg';
 
 interface ToolProps {
   name: string;
@@ -31,7 +31,7 @@ export const ToolItems: ToolProps[] = [
   },
   {
     name: 'Sequalize',
-    icon: Sequalize,
+    icon: Sequelize,
     percentage: 80,
   },
   {
