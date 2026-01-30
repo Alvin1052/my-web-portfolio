@@ -1,3 +1,6 @@
+import img from '../../public/icons/css.svg';
+import img2 from '../../public/icons/mongodb.svg';
+
 interface ToolProps {
   name: string;
   icon: string;
@@ -12,7 +15,7 @@ export const ToolItems: ToolProps[] = [
   },
   {
     name: 'CSS',
-    icon: '/icons/css.svg',
+    icon: img,
     percentage: 90,
   },
   {
@@ -32,7 +35,7 @@ export const ToolItems: ToolProps[] = [
   },
   {
     name: 'MongoDB',
-    icon: '/icons/MongoDB.svg',
+    icon: img2,
     percentage: 80,
   },
   {
