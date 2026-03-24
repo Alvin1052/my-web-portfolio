@@ -1,4 +1,7 @@
 import { StaticImageData } from 'next/image';
+import Library from '../../public/images/portofolio-library.png';
+import Restaurant from '../../public/images/portofolio-restaurant-web.png';
+import Movie from '../../public/images/portofolio-movie.png';
 
 interface PortfolioType {
   title: string;
@@ -9,20 +12,20 @@ interface PortfolioType {
 
 export const PortfolioList: PortfolioType[] = [
   {
-    title: 'Portofolio 1',
-    image: '/images/Portfolio1.png',
+    title: 'Movie Apps',
+    image: Movie,
     year: '2025',
-    link: '/',
+    link: 'https://movie-theater-app.vercel.app/',
   },
   {
-    title: 'Portofolio 2',
-    image: '/images/Portfolio2.png',
+    title: 'Library Apps',
+    image: Library,
     year: '2025',
-    link: '/',
+    link: 'https://library-apps-updated.vercel.app/',
   },
   {
-    title: 'Portofolio 3',
-    image: '/images/Portfolio3.png',
+    title: 'Restaurant Apps (on Maintenance)',
+    image: Restaurant,
     year: '2025',
     link: '/',
   },

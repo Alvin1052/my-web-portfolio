@@ -38,8 +38,8 @@ const ContactUs = () => {
   };
   return (
     <section id='contact' className='relative'>
-      <div className='custom-container relative z-50 pt-20 pb-30'>
-        <div className='flex w-full gap-10'>
+      <div className='custom-container relative z-50 md:pt-20 md:pb-30'>
+        <div className='flex w-full flex-wrap gap-10 md:flex-nowrap'>
           {/* Left */}
           <div className='flex w-full flex-col gap-7.5 border border-neutral-900 bg-black px-6 py-10'>
             {/* Title */}
@@ -130,30 +130,30 @@ const ContactUs = () => {
           </div>
 
           {/* Right */}
-          <div className='flex w-full flex-col gap-5'>
+          <div className='flex w-full flex-col flex-wrap gap-2 md:gap-5'>
             {/* Address */}
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-1 md:gap-3'>
               <div className='text-xl-semibold'>Address</div>
-              <div className='text-md-regular text-neutral-400'>
+              <div className='text-md-regular cursor-pointer text-neutral-400 hover:text-neutral-300'>
                 {Personal.Address}
               </div>
             </div>
-            <div className='w-full border border-neutral-900' />
+            <div className='hidden w-full border border-neutral-900 md:block' />
             {/* Contact */}
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-1 md:gap-3'>
               <div className='text-xl-semibold'>Contact</div>
               <Link
                 href={`https://wa.me/${Personal.countryCode}${Personal.phoneNumber}`}
-                className='text-md-regular text-neutral-400'
+                className='text-md-regular text-neutral-400 hover:text-neutral-300'
                 target='_blank'
               >
                 (+{Personal.countryCode}) {Personal.phoneNumber}
               </Link>
             </div>
-            <div className='w-full border border-neutral-900' />
+            <div className='hidden w-full border border-neutral-900 md:block' />
 
             {/* Email */}
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-1 md:gap-3'>
               <div className='text-xl-semibold'>Email</div>
               <Link
                 href={`mailto:${Personal.mail}`}
@@ -163,7 +163,7 @@ const ContactUs = () => {
                 {Personal.mail}
               </Link>
             </div>
-            <div className='w-full border border-neutral-900' />
+            <div className='hidden w-full border border-neutral-900 md:block' />
 
             <div className='flex flex-col gap-5'>
               <div>Social Media</div>
@@ -233,11 +233,12 @@ const DialogBox: React.FC<dialogboxprops> = ({
                     ? 'Message Not Sent'
                     : 'Please Wait...'}
               </h3>
-              <p className='text-sm-medium md:text-md-regular text-neutral-400'>
+              <p className='text-sm-medium md:text-md-regular place-content-center place-items-center text-center align-middle text-neutral-400'>
                 {isSuccess
                   ? 'I’ve received your message and will get back to you shortly.'
                   : isFailed
-                    ? 'Something broke along the way. Let’s try resending it.'
+                    ? `This Send Email Just For Testing Purpose.
+                    Please sent direct to ${Personal.mail}`
                     : 'Please Wait...'}
               </p>
             </div>

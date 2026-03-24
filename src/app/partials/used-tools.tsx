@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
 import { ToolItems } from '@/constants/tools';
+import Link from 'next/link';
 
 const UsedTools = () => {
   return (
@@ -20,10 +21,17 @@ const UsedTools = () => {
               into real products.
             </p>
           </div>
-          <Button className='h-14'>
-            <Image src={'/icons/mail.svg'} alt='mail' width={16} height={16} />
-            Send Message
-          </Button>
+          <Link href='#contact' className='w-full'>
+            <Button className='h-14 w-full'>
+              <Image
+                src={'/icons/mail.svg'}
+                alt='mail'
+                width={16}
+                height={16}
+              />
+              Send Message
+            </Button>
+          </Link>
         </div>
         {/* Scroll */}
 
@@ -35,7 +43,7 @@ const UsedTools = () => {
 
 const Tools = () => {
   return (
-    <ScrollArea className='flex w-full min-w-90.25 flex-col gap-6 md:max-h-132.5 md:max-w-160.5'>
+    <ScrollArea className='flex max-h-132.5 w-full min-w-90.25 flex-col gap-6 md:max-h-132.5 md:max-w-160.5'>
       <div className='flex w-full flex-col gap-3.75'>
         {ToolItems.map((item, i) => (
           <div key={item.name} className='flex w-full flex-col gap-3.75'>

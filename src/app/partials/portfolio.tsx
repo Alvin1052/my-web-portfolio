@@ -18,27 +18,31 @@ const Portfolio = () => {
     >
       <div className='flex flex-wrap items-center justify-center gap-5'>
         {PortfolioList.map((item) => (
-          <div
+          <Link
+            href={item.link}
             key={item.title}
             className='group w-full rounded-2xl p-1 transition-all duration-300 ease-in-out hover:scale-105 md:w-94.25'
           >
-            <Link href={item.link} className='flex flex-col gap-4'>
-              <AspectRatio className='object-contain transition-all duration-300 group-hover:rotate-2'>
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className='rounded-xl'
-                />
-              </AspectRatio>
+            <div className='flex flex-col gap-4'>
+              {/* <AspectRatio className='object-contain transition-all duration-300 group-hover:rotate-2'> */}
+
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={400}
+                height={400}
+                className='size-[373px] rounded-xl object-cover object-top'
+              />
+
+              {/* </AspectRatio> */}
               <div className='flex flex-col gap-1'>
                 <div className='text-xl-semibold text-white'>{item.title}</div>
                 <div className='text-md-regular text-neutral-400'>
                   {item.year}
                 </div>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
     </Section>

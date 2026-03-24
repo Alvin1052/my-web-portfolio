@@ -272,8 +272,13 @@
   }
   .bg-contact-pattern {
     background-image: url('/pattern/Pattern-contact.png');
-
     background-size: 6%;
+  }
+}
+
+@media (width <= 48rem /* 768px */) {
+  .bg-contact-pattern {
+    background-size: 20%;
   }
 }
 

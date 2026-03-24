@@ -8,10 +8,11 @@ import Tailwind from '../../public/icons/tailwind.svg';
 import Tanstack from '../../public/icons/tanstack.png';
 import RadixUI from '../../public/icons/radix-ui.svg';
 import SHADCN from '../../public/icons/shadcn.png';
+import { StaticImageData } from 'next/image';
 
 interface ToolProps {
   name: string;
-  icon: string;
+  icon: string | StaticImageData;
   percentage: number;
 }
 

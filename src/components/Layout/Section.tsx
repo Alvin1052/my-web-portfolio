@@ -48,7 +48,9 @@ const Section: React.FC<SectionProps> = ({
         >
           {title}{' '}
           {example && (
-            <span className='absolute rotate-15 text-xs'>Example</span>
+            <span className='animation-duration-1000 absolute rotate-15 animate-bounce text-xs'>
+              Example
+            </span>
           )}
         </h2>
         <p

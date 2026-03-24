@@ -42,7 +42,7 @@ const Faq = () => {
   return (
     <section
       id='faq'
-      className='flex items-center justify-center overflow-hidden'
+      className='custom-container flex items-center justify-center md:overflow-hidden'
     >
       <div className='flex flex-col gap-6 py-10 md:w-300 md:gap-12 md:py-20'>
         {/* Title */}
@@ -81,7 +81,7 @@ const Faq = () => {
         <div className='flex'>
           <div
             ref={carouselRef}
-            className={`flex h-89 md:h-116.5 md:gap-4 md:w-[${totalItems * itemWidth}px]`}
+            className={`flex flex-wrap md:h-116.5 md:gap-[${itemGap}px] md:w-[${totalItems * itemWidth}px] transition-all duration-500 ease-in-out`}
           >
             {FaqList.map((item, index) => (
               <div
@@ -89,8 +89,8 @@ const Faq = () => {
                 id={`card-${index}`}
                 key={index}
                 className={cn(
-                  `group hover:bg-primary-400 cursor-pointer mr-[${itemGap}px] flex w-63 flex-col justify-between border-2 border-neutral-900 p-5 transition-all duration-300 ease-in-out hover:w-94.75`,
-                  { 'bg-primary-400 w-94.75': index === currentIndex }
+                  `group hover:bg-primary-400 cursor-pointer mr-[${itemGap}px] flex w-full flex-col justify-between gap-4 border-2 border-neutral-900 p-5 transition-all duration-300 ease-in-out hover:w-94.75 md:w-63`,
+                  { 'bg-primary-400 md:w-94.75': index === currentIndex }
                 )}
               >
                 {/* Upper */}

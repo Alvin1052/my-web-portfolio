@@ -72,7 +72,7 @@ const CarouselJourney = () => {
         {/* Content */}
         <div
           ref={carouselRef}
-          className='flex'
+          className='flex transition-all ease-in-out'
           style={{
             display: 'flex',
             gap: `${ItemGap}px`,
@@ -83,7 +83,7 @@ const CarouselJourney = () => {
             <div
               key={index}
               className={cn(
-                'to-primary-300/50 relative flex snap-start items-center justify-center from-black from-0% to-100% p-0.5 transition-all duration-500 ease-in-out hover:bg-gradient-to-br',
+                'to-primary-300/50 relative flex snap-start items-center justify-center from-black from-0% to-100% p-0.5 hover:bg-gradient-to-br',
                 `mr-[${ItemGap}px]`
               )}
               id='carousel-item'

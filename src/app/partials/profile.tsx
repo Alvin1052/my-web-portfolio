@@ -44,11 +44,11 @@ const Profile = () => {
             {ProfileItem.map((item, i) => (
               <div
                 key={item.alt}
-                className='flex flex-col items-center justify-between md:gap-6'
+                className='flex flex-col items-center justify-between gap-6'
               >
-                <div className='flex flex-col justify-center gap-3 md:max-w-[329px] md:gap-6'>
+                <div className='flex flex-col place-items-center justify-center gap-3 md:max-w-[329px] md:place-items-start md:gap-6'>
                   <Image src={item.src} alt={item.alt} width={40} height={40} />
-                  <div className='flex flex-col gap-0.5'>
+                  <div className='flex flex-col gap-0.5 text-center md:text-left'>
                     <div className='md:text-xl-bold text-lg-bold text-white'>
                       {item.title}
                     </div>

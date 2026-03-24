@@ -21,10 +21,14 @@ const TableCompare = ({ className }: { className?: string }) => {
             <TableRow className='h-18'>
               <TableHead className=''>Skills</TableHead>
               <TableHead className='bg-primary-400 w-16.5 border-b border-white'>
-                <p className='text-center text-wrap md:text-left'>With Me</p>
+                <div className='flex place-content-center text-center text-wrap md:text-left'>
+                  With Me
+                </div>
               </TableHead>
               <TableHead className=''>
-                <p className='text-center text-wrap md:text-left'>Others</p>
+                <p className='flex place-content-center text-center text-wrap md:text-left'>
+                  Others
+                </p>
               </TableHead>
             </TableRow>
           </TableHeader>
