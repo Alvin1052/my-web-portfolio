@@ -1,28 +1,33 @@
+import { StaticImageData } from 'next/image';
+import Threads from '../../public/icons/Threads.png';
+import Instagram from '../../public/icons/instagram.svg';
+import linkedin from '../../public/icons/linkedin.svg';
+import github from '../../public/icons/github.svg';
 interface SocialMedia {
   name: string;
   link: string;
-  icon: string;
+  icon: string | StaticImageData;
 }
 
 export const socialMedia: SocialMedia[] = [
   {
-    name: 'Facebook',
-    link: '/',
-    icon: '/icons/facebook.svg',
-  },
-  {
     name: 'Instagram',
-    link: '/',
-    icon: '/icons/instagram.svg',
+    link: 'https://www.instagram.com/alvinwiliawan/',
+    icon: Instagram,
   },
   {
     name: 'LinkedIn',
-    link: '/',
-    icon: '/icons/linkedin.svg',
+    link: 'https://www.linkedin.com/in/alvinwiliawan/',
+    icon: linkedin,
   },
   {
-    name: 'Tiktok',
-    link: '/',
-    icon: '/icons/tiktok.svg',
+    name: 'Threads',
+    link: 'https://www.threads.com/@alvinwiliawan',
+    icon: Threads,
+  },
+  {
+    name: 'Github',
+    link: 'https://github.com/Alvin1052',
+    icon: github,
   },
 ];

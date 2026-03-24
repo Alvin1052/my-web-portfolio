@@ -2,6 +2,8 @@ import { motion } from 'motion/react';
 import React from 'react';
 
 import { cn } from '@/lib/utils';
+import { title } from 'process';
+import { id } from 'zod/v4/locales';
 
 interface SectionProps {
   title: string;
@@ -11,6 +13,7 @@ interface SectionProps {
   position?: 'left' | 'center' | 'right';
   container?: boolean;
   className?: string;
+  example?: boolean;
 }
 const Section: React.FC<SectionProps> = ({
   title,
@@ -20,6 +23,7 @@ const Section: React.FC<SectionProps> = ({
   position = 'center',
   container = true,
   className,
+  example = false,
   ...props
 }) => {
   return (
@@ -39,10 +43,13 @@ const Section: React.FC<SectionProps> = ({
         <h2
           className={cn(
             `display-md-bold md:display-xl-bold text-neutral-25`,
-            `text-${position}`
+            `text-${position} relative`
           )}
         >
-          {title}
+          {title}{' '}
+          {example && (
+            <span className='absolute rotate-15 text-xs'>Example</span>
+          )}
         </h2>
         <p
           className={cn(

@@ -1,5 +1,5 @@
 import { MenuIcon, XIcon } from 'lucide-react';
-import Link from 'next/link';
+
 import React from 'react';
 
 import {
@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/sheet';
 
 import { NavItems } from '@/constants/NavItems';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -28,7 +29,12 @@ const Header = () => {
               key={item.label}
               className='text-md-regular hover:text-primary-200/80 cursor-pointer p-2 transition-all duration-300 ease-in-out'
             >
-              <Link href={item.href}>{item.label}</Link>
+              <Link
+                href={item.href}
+                className='scroll-smooth transition-all duration-300 ease-in-out'
+              >
+                {item.label}
+              </Link>
             </div>
           ))}
         </div>

@@ -8,8 +8,8 @@ import { ProfileItem } from '@/constants/ProfileItem';
 const Profile = () => {
   return (
     <section
-      id='profile'
-      className='custom-container flex flex-col gap-6 py-10 md:gap-12 md:py-20'
+      id='about'
+      className='custom-container dur flex flex-col gap-6 py-10 md:gap-12 md:py-20'
     >
       <div className='flex flex-col justify-between gap-6 md:flex-row'>
         {/* Left side */}

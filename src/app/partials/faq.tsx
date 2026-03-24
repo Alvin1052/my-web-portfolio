@@ -15,7 +15,6 @@ const Faq = () => {
   const itemWidth: number = 252;
   const itemGap: number = 20;
   const totalItems: number = FaqList.length;
-  // const [isActive, setIsActive] = useState<boolean>(false);
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -41,7 +40,10 @@ const Faq = () => {
     }
   });
   return (
-    <div className='flex items-center justify-center overflow-hidden'>
+    <section
+      id='faq'
+      className='flex items-center justify-center overflow-hidden'
+    >
       <div className='flex flex-col gap-6 py-10 md:w-300 md:gap-12 md:py-20'>
         {/* Title */}
         <div className='flex w-full flex-col items-start gap-6.25 md:flex-row md:items-center md:justify-between'>
@@ -124,7 +126,7 @@ const Faq = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

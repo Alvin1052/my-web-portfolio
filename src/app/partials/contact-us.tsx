@@ -12,6 +12,9 @@ import {
 import { Button } from '@/components/ui/button';
 
 import { useForms } from '../hooks/useForm';
+import { Personal } from '@/constants/personal-data';
+import { Mail } from 'lucide-react';
+import Link from 'next/link';
 
 const ContactUs = () => {
   const {
@@ -34,14 +37,11 @@ const ContactUs = () => {
     setIsSuccess(false);
   };
   return (
-    <div className='relative'>
+    <section id='contact' className='relative'>
       <div className='custom-container relative z-50 pt-20 pb-30'>
         <div className='flex w-full gap-10'>
           {/* Left */}
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className='flex w-full flex-col gap-7.5 border border-neutral-900 bg-black px-6 py-10'
-          >
+          <div className='flex w-full flex-col gap-7.5 border border-neutral-900 bg-black px-6 py-10'>
             {/* Title */}
             <div className='flex w-full flex-col gap-4'>
               <div className='md:display-2xl-bold display-md-bold'>
@@ -54,7 +54,10 @@ const ContactUs = () => {
               </div>
             </div>
             {/* Form */}
-            <div className='flex w-full flex-col gap-5'>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className='flex w-full flex-col gap-5'
+            >
               {/* Name */}
               <div className='flex flex-col gap-1.5'>
                 <label
@@ -67,7 +70,7 @@ const ContactUs = () => {
                   {...register('name')}
                   type='text'
                   placeholder='Enter your name'
-                  className='text-md-medium h-12 border border-neutral-900 px-4 py-2.25 text-neutral-600'
+                  className='text-md-medium h-12 border border-neutral-900 px-4 py-2.25 text-neutral-600 focus:text-neutral-300 focus:outline-none'
                 />
                 {errors.name && (
                   <p className='mt-1 text-xs text-red-500'>
@@ -87,7 +90,7 @@ const ContactUs = () => {
                   {...register('email')}
                   type='text'
                   placeholder='Enter your email'
-                  className='text-md-medium h-12 border border-neutral-900 px-4 py-2.25 text-neutral-600'
+                  className='text-md-medium h-12 border border-neutral-900 px-4 py-2.25 text-neutral-600 focus:text-neutral-300 focus:outline-none'
                 />
                 {errors.email && (
                   <p className='mt-1 text-xs text-red-500'>
@@ -106,7 +109,7 @@ const ContactUs = () => {
                 <textarea
                   {...register('message')}
                   placeholder='Enter your message'
-                  className='text-md-medium h-33.5 border border-neutral-900 px-4 py-2.25 text-neutral-600'
+                  className='text-md-medium h-33.5 border border-neutral-900 px-4 py-2.25 text-neutral-600 focus:text-neutral-300 focus:outline-none'
                 />
                 {errors.message && (
                   <p className='mt-1 text-xs text-red-500'>
@@ -117,21 +120,14 @@ const ContactUs = () => {
 
               <Button
                 type='submit'
-                className='text-sm-semibold h-14 bg-white text-black'
+                className='group text-sm-semibold h-14 bg-white text-black hover:text-neutral-100'
               >
-                <Image
-                  src={'/icons/mail.svg'}
-                  alt='mail'
-                  width={16}
-                  height={16}
-                  className='bg-black text-black'
-                  style={{ fill: 'black' }}
-                  color='black'
-                />
+                <Mail width={24} height={24} />
+
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
-            </div>
-          </form>
+            </form>
+          </div>
 
           {/* Right */}
           <div className='flex w-full flex-col gap-5'>
@@ -139,16 +135,33 @@ const ContactUs = () => {
             <div className='flex flex-col gap-3'>
               <div className='text-xl-semibold'>Address</div>
               <div className='text-md-regular text-neutral-400'>
-                Jakarta, Indonesia
+                {Personal.Address}
               </div>
             </div>
             <div className='w-full border border-neutral-900' />
             {/* Contact */}
             <div className='flex flex-col gap-3'>
               <div className='text-xl-semibold'>Contact</div>
-              <div className='text-md-regular text-neutral-400'>
-                (+62) 1234567890
-              </div>
+              <Link
+                href={`https://wa.me/${Personal.countryCode}${Personal.phoneNumber}`}
+                className='text-md-regular text-neutral-400'
+                target='_blank'
+              >
+                (+{Personal.countryCode}) {Personal.phoneNumber}
+              </Link>
+            </div>
+            <div className='w-full border border-neutral-900' />
+
+            {/* Email */}
+            <div className='flex flex-col gap-3'>
+              <div className='text-xl-semibold'>Email</div>
+              <Link
+                href={`mailto:${Personal.mail}`}
+                className='text-md-regular text-neutral-400 hover:text-neutral-300'
+                target='_blank'
+              >
+                {Personal.mail}
+              </Link>
             </div>
             <div className='w-full border border-neutral-900' />
 
@@ -162,13 +175,13 @@ const ContactUs = () => {
           <DialogBox
             isSuccess={isSuccess}
             isFailed={isFailed}
-            handleClose={handleClose}
+            handleClose={() => handleClose()}
           />
         </div>
       </div>
       <div className='absolute bottom-0 z-30 h-[757px] w-full bg-gradient-to-b from-black from-0% to-transparent to-100%' />
       <div className='bg-contact-pattern absolute bottom-0 z-20 h-[757px] w-full' />
-    </div>
+    </section>
   );
 };
 
@@ -189,11 +202,11 @@ const DialogBox: React.FC<dialogboxprops> = ({
       <AlertDialogHeader hidden />
       <AlertDialogTitle />
       <AlertDialogContent
-        className={`w-90.25 border-2 border-neutral-900 bg-neutral-900 md:w-129.5`}
+        className={`w-90.25 rounded-4xl border-2 border-neutral-900 bg-neutral-900 md:w-129.5`}
       >
-        <div className='flex flex-col'>
+        <div className='flex flex-col rounded-2xl'>
           {/* Upper */}
-          <div className='relative flex w-full items-center justify-center overflow-hidden py-10'>
+          <div className='relative flex w-full items-center justify-center overflow-hidden rounded-t-2xl py-10'>
             <Image
               className='relative z-100'
               src={`${isSuccess ? '/icons/dialog-success.png' : isFailed ? '/icons/dialog-failed.png' : '/icons/mail.svg'}`}
@@ -201,13 +214,7 @@ const DialogBox: React.FC<dialogboxprops> = ({
               width={180}
               height={180}
             />
-            {/* <Image
-                  className='absolute top-1/2 left-1/2 z-15 w-45 -translate-x-1/2 -translate-y-1/2'
-                  src={'/pattern/circle-pattern.png'}
-                  alt={'pattern'}
-                  width={147.62}
-                  height={147.62}
-                /> */}
+
             {/* Pattern */}
             <div className='bg-dialog-pattern absolute top-0 left-0 z-10 h-full w-full opacity-90' />
             <div className='absolute top-0 z-20 h-full w-full bg-gradient-to-t from-black from-8% to-transparent to-100%' />
@@ -217,7 +224,7 @@ const DialogBox: React.FC<dialogboxprops> = ({
             />
           </div>
           {/* Lower */}
-          <div className='flex w-full flex-col items-center gap-6 bg-black p-4 md:gap-8 md:p-8'>
+          <div className='flex w-full flex-col items-center gap-6 rounded-b-2xl bg-black p-4 md:gap-8 md:p-8'>
             <div className='flex flex-col items-center gap-0.75 md:gap-2'>
               <h3 className='text-xl-bold md:display-xs-bold text-neutral-25'>
                 {isSuccess

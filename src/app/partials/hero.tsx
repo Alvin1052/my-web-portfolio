@@ -2,11 +2,11 @@
 
 import { Charm } from 'next/font/google';
 import Image from 'next/image';
-import hero from '/images/personal.png';
 
 import { Button } from '@/components/ui/button';
 
 import Gambar from '../../assets/images/personal.png';
+import Link from 'next/link';
 
 const charm = Charm({
   weight: '400',
@@ -43,15 +43,17 @@ const Hero = () => {
                 across all platforms.
               </div>
             </div>
-            <Button className='h-14 w-full md:w-71.75'>
-              <Image
-                src={'/icons/mail.svg'}
-                alt='mail'
-                width={16}
-                height={16}
-              />
-              Hire Me
-            </Button>
+            <Link href={'#contact'}>
+              <Button className='h-14 w-full md:w-71.75'>
+                <Image
+                  src={'/icons/mail.svg'}
+                  alt='mail'
+                  width={16}
+                  height={16}
+                />
+                Hire Me
+              </Button>
+            </Link>
           </div>
         </div>
 

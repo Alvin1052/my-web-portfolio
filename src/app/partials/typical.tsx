@@ -5,7 +5,7 @@ const MyType = () => {
   return (
     <div className='relative'>
       <Section
-        id='comparison'
+        id='skill'
         title='Not Your Typical Frontend Developer'
         subtitle='I care about how it looks, how it works, and how it feels — all at
           once'

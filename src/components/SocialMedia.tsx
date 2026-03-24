@@ -8,7 +8,12 @@ const SocialMedia = () => {
   return (
     <div className='flex gap-4'>
       {socialMedia.map((item) => (
-        <Link href={item.link} key={item.name}>
+        <Link
+          href={item.link}
+          key={item.name}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           <div className='flex size-10 items-center justify-center rounded-full border border-neutral-800 p-2.5 transition-all duration-300 ease-in-out hover:opacity-80'>
             <Image
               src={item.icon}

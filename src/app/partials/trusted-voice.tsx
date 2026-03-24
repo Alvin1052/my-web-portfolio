@@ -8,6 +8,8 @@ const TrustedVoice = () => {
     <Section
       title='Trusted Voices'
       subtitle='Here’s what people say about working with me — across projects, teams, and timelines.'
+      example={true}
+      id='client'
     >
       <GridRows />
     </Section>
