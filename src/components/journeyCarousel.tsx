@@ -15,7 +15,7 @@ const CarouselJourney = () => {
   const totalItems = JourneyList.length;
   const itemWidth = IsLarge ? 564 : 361; // Width of each item in pixels
   const ItemGap = IsLarge ? 20 : 20;
-  const barWidth = IsLarge ? 1200 : window.innerWidth;
+  const barWidth = IsLarge ? 1200 : 400;
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % totalItems);
   };
