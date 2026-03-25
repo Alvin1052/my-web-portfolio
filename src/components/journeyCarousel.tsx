@@ -15,8 +15,8 @@ const CarouselJourney = () => {
   const totalItems = JourneyList.length;
   const itemWidth = IsLarge ? 564 : 361; // Width of each item in pixels
   const ItemGap = IsLarge ? 20 : 20;
+  const barWidth = IsLarge ? 1200 : window.innerWidth;
   const handleNext = () => {
-    console.log('next');
     setCurrentIndex((prev) => (prev + 1) % totalItems);
   };
 
@@ -30,9 +30,8 @@ const CarouselJourney = () => {
     if (!carousel) return;
     if (!scroll) return;
 
-    scroll.style.width = `${(currentIndex + 1) * (1200 / totalItems)}px`;
+    scroll.style.width = `${(currentIndex + 1) * (barWidth / totalItems)}px`;
     scroll.style.transition = 'width 0.5s ease-in-out';
-
     carousel.style.transition = 'transform 0.5s ease-in-out';
     carousel.style.transform = `translateX(-${currentIndex * (itemWidth + ItemGap)}px)`;
 
@@ -44,7 +43,7 @@ const CarouselJourney = () => {
         carousel.style.transform = `translateX(-${itemWidth}px)`;
       } else if (currentIndex === -1) {
         setCurrentIndex(totalItems - 1);
-        carousel.style.transform = `translateX(-${(totalItems - 1) * itemWidth}px)`;
+        carousel.style.transform = `translateX(-${totalItems * itemWidth}px)`;
       }
       // Re-enable transition after reset
       setTimeout(() => {
@@ -54,7 +53,7 @@ const CarouselJourney = () => {
 
     // Trigger reset after transition ends
     const handleTransitionEnd = () => {
-      if (currentIndex === totalItems || currentIndex === -1) {
+      if (currentIndex === totalItems - 1 || currentIndex === -1) {
         resetPosition();
       }
     };
@@ -76,19 +75,19 @@ const CarouselJourney = () => {
           style={{
             display: 'flex',
             gap: `${ItemGap}px`,
-            width: `${itemWidth * JourneyList.length}px`,
+            width: `${itemWidth * JourneyList.length + ItemGap * (JourneyList.length - 1)}px`,
           }}
         >
           {JourneyList.map((item, index) => (
             <div
               key={index}
               className={cn(
-                'to-primary-300/50 relative flex snap-start items-center justify-center from-black from-0% to-100% p-0.5 hover:bg-gradient-to-br',
-                `mr-[${ItemGap}px]`
+                'to-primary-300/50 relative flex w-full snap-start items-center justify-center from-black from-0% to-100% p-0.5 hover:bg-gradient-to-br',
+                ` max-w-[${itemWidth}px]`
               )}
               id='carousel-item'
             >
-              <Card {...item} className='bg-black' />
+              <Card {...item} className='h-full w-full bg-black' />
               <div className='bg-primary-300 absolute top-0 left-0 h-17 w-0.75 translate-y-6' />
             </div>
           ))}

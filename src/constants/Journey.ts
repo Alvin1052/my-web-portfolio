@@ -1,5 +1,10 @@
 import { StaticImageData } from 'next/image';
 
+import Biznet from '../../public/images/Journey-Biznet.png';
+import RevoU from '../../public/images/Journey-RevoU.png';
+import Hannochs from '../../public/images/Journey-Hannochs.png';
+import RJGF from '../../public/images/Journey-RJGF.png';
+import WPH from '../../public/images/Journey-WPH.svg';
 interface Journey {
   title: string;
   year: string;
@@ -9,38 +14,38 @@ interface Journey {
 
 export const JourneyList: Journey[] = [
   {
-    title: 'Frontend Developer',
-    year: '2025 - Present',
+    title: 'Business Coordinator at BIZNET',
+    year: '2021 - 2022',
     description:
-      'Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance, implemented accessible designs, and delivered clean, reusable code to enhance user experience and scalability.',
-    companyImage: '/icons/journey-airbnb.svg',
+      "Analyzing Market Segmentation Business to be Prospect List and become a Customer and also Analyzing Potential Property to make Agreement with Property's Owner.",
+    companyImage: Biznet,
   },
   {
-    title: 'Frontend Developer',
-    year: '2025 - Present',
+    title: 'Data Analyst at RevoU',
+    year: '2022 - 2023',
     description:
-      'Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance, implemented accessible designs, and delivered clean, reusable code to enhance user experience and scalability.',
-    companyImage: '/icons/journey-dribble.svg',
+      'Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance.',
+    companyImage: RevoU,
   },
   {
-    title: 'Frontend Developer',
-    year: '2025 - Present',
+    title: 'Digital Marketing Analyst at Hannochs',
+    year: '2023 - 2024',
     description:
-      'Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance, implemented accessible designs, and delivered clean, reusable code to enhance user experience and scalability.',
-    companyImage: '/icons/journey-zoom.svg',
+      'Analyzing Digital Advertising Campaign for Making Report and Dashboard Weekly and Evaluate the Content Ads. Taking Photo and Video for Editing use for Social Media.',
+    companyImage: Hannochs,
   },
   {
-    title: 'Frontend Developer',
-    year: '2025 - Present',
+    title: 'Pre-Sales Network Engineer at RJGF',
+    year: '2024 - Present',
     description:
-      'Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance, implemented accessible designs, and delivered clean, reusable code to enhance user experience and scalability.',
-    companyImage: '/icons/journey-zoom.svg',
+      'Giving Consultation about Customer Network and Surveilance System. Designing and Sizing Customer Needs for Expanding or Replacing Network and Surveilances devices.',
+    companyImage: RJGF,
   },
   {
-    title: 'Frontend Developer',
+    title: 'Frontend Developer at WPH',
     year: '2025 - Present',
     description:
-      'Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance, implemented accessible designs, and delivered clean, reusable code to enhance user experience and scalability.',
-    companyImage: '/icons/journey-zoom.svg',
+      'Learning to Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems.',
+    companyImage: WPH,
   },
 ];

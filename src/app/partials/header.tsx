@@ -61,12 +61,13 @@ const Header = () => {
                 {/* Menu  */}
                 <div className='flex flex-col gap-0'>
                   {NavItems.map((item) => (
-                    <div
+                    <SheetClose
+                      asChild
                       key={item.label}
                       className='text-md-regular cursor-pointer py-2 transition-all duration-300 ease-in-out hover:text-neutral-400'
                     >
                       <Link href={item.href}>{item.label}</Link>
-                    </div>
+                    </SheetClose>
                   ))}
                 </div>
               </div>

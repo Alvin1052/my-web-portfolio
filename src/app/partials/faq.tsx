@@ -81,7 +81,7 @@ const Faq = () => {
         <div className='flex'>
           <div
             ref={carouselRef}
-            className={`flex flex-wrap md:h-116.5 md:gap-[${itemGap}px] md:w-[${totalItems * itemWidth}px] transition-all duration-500 ease-in-out`}
+            className={`flex flex-wrap md:h-116.5 md:flex-none md:gap-[${itemGap}px] md:w-[${totalItems * itemWidth}px] transition-all duration-500 ease-in-out`}
           >
             {FaqList.map((item, index) => (
               <div

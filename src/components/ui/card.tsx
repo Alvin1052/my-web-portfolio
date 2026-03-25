@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       className={cn(
-        'relative flex w-90.25 flex-col justify-center gap-5 border border-neutral-900 p-5 md:w-141',
+        'relative flex h-[400px] w-full flex-col justify-center gap-5 border border-neutral-900 p-5',
         className
       )}
     >
@@ -39,17 +39,18 @@ const Card: React.FC<CardProps> = ({
       {/* Line */}
       <div className='w-full border border-neutral-900' />
       {/* description */}
-      <div className='text-sm-regular md:text-md-regular text-neutral-400'>
+      <div className='text-sm-regular md:text-md-regular text-justify text-neutral-400'>
         {description}
       </div>
       {/* Company */}
-      <Image
-        src={companyImage}
-        alt={title}
-        width={100}
-        height={100}
-        className='h-12'
-      />
+      <div className='relative h-12'>
+        <Image
+          src={companyImage}
+          alt={title}
+          fill
+          className='right-0 max-w-[200px] object-contain'
+        />
+      </div>
     </div>
   );
 };
