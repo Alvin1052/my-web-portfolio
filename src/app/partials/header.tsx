@@ -1,7 +1,5 @@
 import { MenuIcon, XIcon } from 'lucide-react';
 
-import React from 'react';
-
 import {
   Sheet,
   SheetClose,
@@ -17,11 +15,11 @@ const Header = () => {
   return (
     <div className='fixed top-0 z-1000 mt-4 w-full md:mt-8'>
       <div className='m-auto flex h-12 w-90 items-center justify-between rounded-full bg-black/40 px-4 backdrop-blur-lg md:w-fit md:justify-center md:gap-6 md:bg-black/20 md:px-6'>
-        <div>
+        <>
           <Link href='/' className='text-xl-bold cursor-pointer'>
             Alvin
           </Link>
-        </div>
+        </>
         {/*Menu Desktop Version */}
         <div className='hidden items-center justify-center gap-6 md:flex'>
           {NavItems.map((item) => (

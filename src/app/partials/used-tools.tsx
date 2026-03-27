@@ -9,11 +9,11 @@ import Link from 'next/link';
 const UsedTools = () => {
   return (
     <section id='tools' className='custom-container py-10 md:py-20'>
-      <div className='flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-47.75'>
+      <div className='flex flex-col items-center gap-6 md:flex-row md:justify-between'>
         {/* Description */}
         <div className='flex flex-col justify-between gap-6 md:h-[529px]'>
           <div className='flex max-w-91.75 flex-col gap-2 md:gap-4'>
-            <h1 className='md:display-2xl-bold display-md-bold text-white'>
+            <h1 className='lg:display-2xl-bold md:display-xl-bold display-md-bold text-white'>
               Tools I Use to Build
             </h1>
             <p className='text-md-regular text-neutral-400'>
@@ -43,7 +43,7 @@ const UsedTools = () => {
 
 const Tools = () => {
   return (
-    <ScrollArea className='flex max-h-132.5 w-full min-w-90.25 flex-col gap-6 md:max-h-132.5 md:max-w-160.5'>
+    <ScrollArea className='flex max-h-132.5 w-full flex-col gap-6 md:max-h-132.5 md:max-w-160.5'>
       <div className='flex w-full flex-col gap-3.75'>
         {ToolItems.map((item, i) => (
           <div key={item.name} className='flex w-full flex-col gap-3.75'>

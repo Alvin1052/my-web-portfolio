@@ -280,6 +280,9 @@
   .bg-contact-pattern {
     background-size: 20%;
   }
+  .custom-container {
+    @apply max-w-[393px];
+  }
 }
 
 img {

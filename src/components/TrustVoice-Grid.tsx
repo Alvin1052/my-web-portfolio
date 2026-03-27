@@ -7,9 +7,9 @@ import { cn } from '@/lib/utils';
 const GridRows = () => {
   return (
     <div className='relative flex flex-col gap-10'>
-      <div className='flex flex-wrap gap-4 md:flex-nowrap'>
+      <div className='flex flex-wrap gap-4 lg:flex-nowrap'>
         {/* Card 1 */}
-        <div className='to-primary-300 flex items-center justify-center bg-gradient-to-tl from-[#000000] from-0% to-80% p-0.25 md:w-112'>
+        <div className='to-primary-300 flex w-full items-center justify-center bg-gradient-to-tl from-[#000000] from-0% to-80% p-0.25 lg:w-1/3'>
           <Card
             {...TrustedVoiceList[0]}
             className='to-primary-300/20 w-full border-0 bg-linear-[-45deg] from-transparent from-0% to-90%'
@@ -17,13 +17,13 @@ const GridRows = () => {
         </div>
 
         {/* Group */}
-        <div className='flex flex-col flex-wrap gap-4 md:w-183 md:flex-nowrap'>
+        <div className='flex w-full flex-col flex-wrap gap-4 lg:w-2/3 lg:flex-nowrap'>
           {/* Card 2 */}
-          <div className='w-full md:h-91.75'>
+          <div className='w-full lg:h-91.75'>
             <Card {...TrustedVoiceList[1]} index={1} />
           </div>
           {/* Group */}
-          <div className='flex w-full flex-wrap gap-4 md:flex-nowrap'>
+          <div className='flex w-full flex-wrap gap-4 lg:flex-nowrap'>
             {/* card 3 */}
             <div className='w-full'>
               <Card {...TrustedVoiceList[2]} />
@@ -63,14 +63,16 @@ const Card: React.FC<CardProps> = ({ index, className, ...item }) => {
         {item.title !== '' && (
           <div className='md:display-lg-bold display-sm-bold'>{item.title}</div>
         )}
-        <div
-          className={cn(
-            'md:display-xs-bold text-lg-bold',
-            index !== 0 && 'text-lg-semibold'
-          )}
-        >
-          {item.subtitle}
-        </div>
+        {item.subtitle !== '' && (
+          <div
+            className={cn(
+              'md:display-xs-bold text-lg-bold',
+              index !== 0 && 'text-lg-semibold'
+            )}
+          >
+            {item.subtitle}
+          </div>
+        )}
         <div className='flex gap-0.5 md:gap-1'>
           {Array(item.star)
             .fill(0)
@@ -80,7 +82,9 @@ const Card: React.FC<CardProps> = ({ index, className, ...item }) => {
               </div>
             ))}
         </div>
-        <p className='text-sm-regular md:text-md-regular'>{item.description}</p>
+        <p className='text-sm-regular md:text-md-regular text-justify'>
+          {item.description}
+        </p>
       </div>
       {/* Profile */}
       <div className='flex items-end justify-between'>

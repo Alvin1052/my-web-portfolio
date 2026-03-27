@@ -9,11 +9,12 @@ const Profile = () => {
   return (
     <section
       id='about'
-      className='custom-container dur flex flex-col gap-6 py-10 md:gap-12 md:py-20'
+      className='custom-container dur flex w-[361px] flex-col gap-6 py-10 md:w-full md:gap-12 md:py-20'
     >
+      {/* Title */}
       <div className='flex flex-col justify-between gap-6 md:flex-row'>
         {/* Left side */}
-        <div className='md:display-xl-bold display-md-bold md:w-195'>
+        <div className='md:display-xl-bold display-md-bold text-justify md:w-195'>
           I turn ideas and designs into functional, accessible, and performant
           websites {''}
           <span className='text-primary-300'>
@@ -31,9 +32,16 @@ const Profile = () => {
       </div>
       <div className='w-full border border-neutral-900' />
       {/* Main Content */}
-      <div className='flex w-full flex-col items-center justify-between gap-10.25 md:flex-row'>
+      <div className='flex w-full flex-col items-center justify-between gap-10.25 lg:flex-row'>
         {/* Image */}
-        <div className='relative h-102.25 w-90.25 md:h-[513px] md:w-[453px]'>
+        <div
+          className='relative shrink-0'
+          draggable={true}
+          style={{
+            width: 'clamp(22.56rem, 37.75vw, 28.31rem)',
+            height: 'clamp(26.19rem, 42.75vw, 32.06rem)',
+          }}
+        >
           <Image src={'/images/Profile-Image.png'} alt='Profile' fill />
         </div>
 

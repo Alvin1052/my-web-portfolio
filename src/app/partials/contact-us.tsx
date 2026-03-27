@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-
 import SocialMedia from '@/components/SocialMedia';
 import {
   AlertDialogHeader,
@@ -13,7 +12,7 @@ import { Button } from '@/components/ui/button';
 
 import { useForms } from '../hooks/useForm';
 import { Personal } from '@/constants/personal-data';
-import { Mail } from 'lucide-react';
+import { Download, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 const ContactUs = () => {
@@ -137,8 +136,8 @@ const ContactUs = () => {
               <div className='text-md-regular cursor-pointer text-neutral-400 hover:text-neutral-300'>
                 {Personal.Address}
               </div>
+              <div className='hidden w-full border border-neutral-900 md:block' />
             </div>
-            <div className='hidden w-full border border-neutral-900 md:block' />
             {/* Contact */}
             <div className='flex flex-col gap-1 md:gap-3'>
               <div className='text-xl-semibold'>Contact</div>
@@ -149,8 +148,8 @@ const ContactUs = () => {
               >
                 (+{Personal.countryCode}) {Personal.phoneNumber}
               </Link>
+              <div className='hidden w-full border border-neutral-900 md:block' />
             </div>
-            <div className='hidden w-full border border-neutral-900 md:block' />
 
             {/* Email */}
             <div className='flex flex-col gap-1 md:gap-3'>
@@ -162,13 +161,25 @@ const ContactUs = () => {
               >
                 {Personal.mail}
               </Link>
+              <div className='hidden w-full border border-neutral-900 md:block' />
             </div>
-            <div className='hidden w-full border border-neutral-900 md:block' />
-
-            <div className='flex flex-col gap-5'>
+            {/* Social Media */}
+            <div className='flex flex-col gap-1'>
               <div>Social Media</div>
               <SocialMedia />
             </div>
+            {/* Button Download CV */}
+            <Button className='h-10 w-fit rounded-lg'>
+              <a
+                href='/downloads/resume.pdf'
+                download={"Alvin's Resume.pdf"}
+                className='flex h-full items-center justify-start gap-2'
+              >
+                <Download />
+                <div className='hidden h-full border border-neutral-200 md:block' />
+                <div>Check My Resume</div>
+              </a>
+            </Button>
           </div>
         </div>
         <div>

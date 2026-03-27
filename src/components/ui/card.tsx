@@ -26,6 +26,7 @@ const Card: React.FC<CardProps> = ({
     >
       {/* Position */}
       <div className='flex w-full items-center justify-between'>
+        {/* Position */}
         <div className='flex flex-col gap-1'>
           <h3 className='text-md-bold md:text-xl-bold text-neutral-25'>
             {title}

@@ -17,31 +17,30 @@ const Hero = () => {
   return (
     <section id='/' className='relative'>
       {/* Content */}
-      <div className='relative z-50 mb-15 flex flex-col-reverse items-center justify-center gap-6 md:mb-21 md:flex-row'>
+      <div className='relative z-50 flex flex-col-reverse items-center justify-center gap-6 pt-10 pb-15 md:mb-21 md:flex-row'>
         {/* Text */}
         <div className='md:flex-[7] md:basis-[80px] md:translate-x-[140px] md:translate-y-[73px]'>
           <div
-            className='flex flex-col gap-8 md:gap-15.5'
+            className='flex flex-col gap-4 md:gap-6 lg:gap-8'
             style={{ width: 'clamp(22.56rem, 47.50vw, 42.75rem)' }}
           >
-            <div className='flex flex-col gap-4 md:gap-8'>
-              <div className='text-md-regular md:text-xl-regular'>
-                Hi. I’m Alvin Wiliawan
-              </div>
+            <div className='text-md-regular md:text-xl-regular'>
+              Hi. I’m Alvin Wiliawan
+            </div>
+            {/* Title */}
+            <div>
               <div>
-                <div>
-                  <span className='md:display-title-bold display-title-mobile-bold'>
-                    FRONT<span className={charm.className}>END </span>
-                    DEVELOPER
-                  </span>
-                </div>
+                <span className='lg:display-title-bold display-title-mobile-bold'>
+                  FRONT<span className={charm.className}>END </span>
+                  DEVELOPER
+                </span>
               </div>
-              <div className='text-lg-regular text-neutral-400'>
-                Passionate about frontend development, I focus on crafting
-                digital products that are visually polished,
-                performance-optimized, and deliver a consistent experience
-                across all platforms.
-              </div>
+            </div>
+            {/* Description */}
+            <div className='text-lg-regular text-justify text-neutral-400'>
+              Passionate about frontend development, I focus on crafting digital
+              products that are visually polished, performance-optimized, and
+              deliver a consistent experience across all platforms.
             </div>
             <Link href={'#contact'}>
               <Button className='h-14 w-full md:w-71.75'>

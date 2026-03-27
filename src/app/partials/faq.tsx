@@ -46,7 +46,7 @@ const Faq = () => {
     >
       <div className='flex flex-col gap-6 py-10 md:w-300 md:gap-12 md:py-20'>
         {/* Title */}
-        <div className='flex w-full flex-col items-start gap-6.25 md:flex-row md:items-center md:justify-between'>
+        <div className='flex w-full flex-col items-start justify-start gap-6.25 lg:flex-row lg:items-center lg:justify-between'>
           {/* Text Title */}
           <div>
             <div className='display-md-bold md:display-xl-bold text-neutral-25'>
@@ -59,6 +59,7 @@ const Faq = () => {
           </div>
           {/* Button */}
           <div className='flex gap-3'>
+            {/* Prev Button */}
             <Button
               id='prevBtn'
               variant={'carousel'}
@@ -67,6 +68,7 @@ const Faq = () => {
             >
               Prev
             </Button>
+            {/* Next Button */}
             <Button
               id='nextBtn'
               variant={'carousel'}
@@ -81,16 +83,17 @@ const Faq = () => {
         <div className='flex'>
           <div
             ref={carouselRef}
-            className={`flex flex-wrap md:h-116.5 md:flex-none md:gap-[${itemGap}px] md:w-[${totalItems * itemWidth}px] transition-all duration-500 ease-in-out`}
+            className={`flex flex-col xl:h-116.5 xl:flex-row xl:gap-[${itemGap}px] xl:w-[${totalItems * itemWidth}px] transition-all duration-500 ease-in-out`}
           >
             {FaqList.map((item, index) => (
               <div
                 ref={cardRef}
                 id={`card-${index}`}
                 key={index}
+                onClick={() => setCurrentIndex(index)}
                 className={cn(
-                  `group hover:bg-primary-400 cursor-pointer mr-[${itemGap}px] flex w-full flex-col justify-between gap-4 border-2 border-neutral-900 p-5 transition-all duration-300 ease-in-out hover:w-94.75 md:w-63`,
-                  { 'bg-primary-400 md:w-94.75': index === currentIndex }
+                  `group hover:bg-primary-400 cursor-pointer mr-[${itemGap}px] flex w-full flex-col justify-between gap-4 border-2 border-neutral-900 p-5 transition-all duration-300 ease-in-out hover:w-94.75 xl:w-63`,
+                  index === currentIndex && 'bg-primary-400 w-full xl:w-94.75'
                 )}
               >
                 {/* Upper */}
@@ -109,12 +112,12 @@ const Faq = () => {
                 </div>
                 {/* Lower */}
                 <div className='flex flex-col gap-3'>
-                  <div className='display-sm-semibold text-neutral-25'>
+                  <div className='lg:display-sm-semibold display-xs-semibold text-neutral-25'>
                     {item.question}
                   </div>
                   <div
                     className={cn(
-                      'text-md-medium text-neutral-25 hidden group-hover:block',
+                      'lg:text-md-medium text-sm-medium text-neutral-25 hidden group-hover:block',
                       { block: index === currentIndex }
                     )}
                   >
