@@ -5,7 +5,7 @@ import SocialMedia from '@/components/SocialMedia';
 
 import { ProfileItem } from '@/constants/ProfileItem';
 
-const Profile = () => {
+const Profile: React.FC = () => {
   return (
     <section
       id='about'

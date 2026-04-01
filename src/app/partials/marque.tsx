@@ -3,8 +3,9 @@ import Image from 'next/image';
 import Marque from '@/components/ui/marque';
 
 import marqueItems from '@/constants/MarqueSkills';
+import React from 'react';
 
-const SkillMarque = () => {
+const SkillMarque: React.FC = () => {
   return (
     <div className='bg-primary-300 overflow-hidden'>
       <Marque className='py-3 md:py-6'>

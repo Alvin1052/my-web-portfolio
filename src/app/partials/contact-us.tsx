@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import React from 'react';
 import SocialMedia from '@/components/SocialMedia';
@@ -15,7 +16,7 @@ import { Personal } from '@/constants/personal-data';
 import { Download, Mail } from 'lucide-react';
 import Link from 'next/link';
 
-const ContactUs = () => {
+const ContactUs: React.FC = () => {
   const {
     register,
     handleSubmit,
@@ -29,14 +30,12 @@ const ContactUs = () => {
     setIsSuccess,
   } = useForms();
 
-  console.log('lol', serverError);
-
   const handleClose = () => {
     setIsFailed(false);
     setIsSuccess(false);
   };
   return (
-    <section id='contact' className='relative'>
+    <section id='contact' className='relative pb-10'>
       <div className='custom-container relative z-50 md:pt-20 md:pb-30'>
         <div className='flex w-full flex-wrap gap-10 md:flex-nowrap'>
           {/* Left */}
@@ -60,6 +59,7 @@ const ContactUs = () => {
               {/* Name */}
               <div className='flex flex-col gap-1.5'>
                 <label
+                  id='labelName'
                   htmlFor='name'
                   className='text-sm-regular text-neutral-25'
                 >
@@ -80,6 +80,7 @@ const ContactUs = () => {
               {/* Email */}
               <div className='flex flex-col gap-1.5'>
                 <label
+                  id='labelEmail'
                   htmlFor='email'
                   className='text-sm-regular text-neutral-25'
                 >
@@ -100,6 +101,7 @@ const ContactUs = () => {
               {/* Message */}
               <div className='flex flex-col gap-1.5'>
                 <label
+                  id='labelMessage'
                   htmlFor='message'
                   className='text-sm-regular text-neutral-25'
                 >
@@ -237,13 +239,13 @@ const DialogBox: React.FC<dialogboxprops> = ({
           {/* Lower */}
           <div className='flex w-full flex-col items-center gap-6 rounded-b-2xl bg-black p-4 md:gap-8 md:p-8'>
             <div className='flex flex-col items-center gap-0.75 md:gap-2'>
-              <h3 className='text-xl-bold md:display-xs-bold text-neutral-25'>
+              <div className='text-xl-bold md:display-xs-bold text-neutral-25'>
                 {isSuccess
                   ? 'Thanks for Reaching Out!'
                   : isFailed
                     ? 'Message Not Sent'
                     : 'Please Wait...'}
-              </h3>
+              </div>
               <p className='text-sm-medium md:text-md-regular place-content-center place-items-center text-center align-middle text-neutral-400'>
                 {isSuccess
                   ? 'I’ve received your message and will get back to you shortly.'

@@ -1,5 +1,5 @@
 import { MenuIcon, XIcon } from 'lucide-react';
-
+import logoIcon from '../../../public/icons/logo-transparent.png';
 import {
   Sheet,
   SheetClose,
@@ -10,32 +10,35 @@ import {
 
 import { NavItems } from '@/constants/NavItems';
 import Link from 'next/link';
+import Image from 'next/image';
+import React from 'react';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <div className='fixed top-0 z-1000 mt-4 w-full md:mt-8'>
       <div className='m-auto flex h-12 w-90 items-center justify-between rounded-full bg-black/40 px-4 backdrop-blur-lg md:w-fit md:justify-center md:gap-6 md:bg-black/20 md:px-6'>
-        <>
-          <Link href='/' className='text-xl-bold cursor-pointer'>
-            Alvin
-          </Link>
-        </>
+        <Link href='/' className='text-xl-bold cursor-pointer'>
+          <Image src={logoIcon} alt='logo' width={50} height={50} />
+        </Link>
+
         {/*Menu Desktop Version */}
-        <div className='hidden items-center justify-center gap-6 md:flex'>
-          {NavItems.map((item) => (
-            <div
-              key={item.label}
-              className='text-md-regular hover:text-primary-200/80 cursor-pointer p-2 transition-all duration-300 ease-in-out'
-            >
-              <Link
-                href={item.href}
-                className='scroll-smooth transition-all duration-300 ease-in-out'
+        <nav>
+          <ul className='hidden items-center justify-center gap-6 md:flex'>
+            {NavItems.map((item) => (
+              <li
+                key={item.label}
+                className='text-md-regular hover:text-primary-200/80 cursor-pointer p-2 transition-all duration-300 ease-in-out'
               >
-                {item.label}
-              </Link>
-            </div>
-          ))}
-        </div>
+                <Link
+                  href={item.href}
+                  className='scroll-smooth transition-all duration-300 ease-in-out'
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         {/* Menu Mobile Version */}
         <Sheet>
@@ -57,17 +60,20 @@ const Header = () => {
                   </SheetClose>
                 </div>
                 {/* Menu  */}
-                <div className='flex flex-col gap-0'>
-                  {NavItems.map((item) => (
-                    <SheetClose
-                      asChild
-                      key={item.label}
-                      className='text-md-regular cursor-pointer py-2 transition-all duration-300 ease-in-out hover:text-neutral-400'
-                    >
-                      <Link href={item.href}>{item.label}</Link>
-                    </SheetClose>
-                  ))}
-                </div>
+                <nav>
+                  <ul className='flex flex-col gap-2'>
+                    {NavItems.map((item) => (
+                      <li key={item.label}>
+                        <SheetClose
+                          asChild
+                          className='text-md-regular cursor-pointer py-2 font-bold transition-all duration-300 ease-in-out hover:text-neutral-400'
+                        >
+                          <Link href={item.href}>{item.label}</Link>
+                        </SheetClose>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
               </div>
             </div>
           </SheetContent>

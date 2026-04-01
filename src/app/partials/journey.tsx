@@ -1,7 +1,7 @@
 import CarouselJourney from '@/components/journeyCarousel';
 import Section from '@/components/Layout/Section';
 
-const Journey = () => {
+export default function Journey() {
   return (
     <Section
       title='My Journey in Tech'
@@ -14,6 +14,4 @@ const Journey = () => {
       <CarouselJourney />
     </Section>
   );
-};
-
-export default Journey;
+}

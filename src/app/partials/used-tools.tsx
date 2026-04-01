@@ -5,8 +5,9 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
 import { ToolItems } from '@/constants/tools';
 import Link from 'next/link';
+import React from 'react';
 
-const UsedTools = () => {
+const UsedTools: React.FC = () => {
   return (
     <section id='tools' className='custom-container py-10 md:py-20'>
       <div className='flex flex-col items-center gap-6 md:flex-row md:justify-between'>

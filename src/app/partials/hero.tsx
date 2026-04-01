@@ -1,5 +1,3 @@
-'use client';
-
 import { Charm } from 'next/font/google';
 import Image from 'next/image';
 
@@ -7,13 +5,14 @@ import { Button } from '@/components/ui/button';
 
 import Gambar from '../../assets/images/personal.png';
 import Link from 'next/link';
+import React from 'react';
 
 const charm = Charm({
   weight: '400',
   subsets: ['latin'],
   style: ['normal'],
 });
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <section id='/' className='relative'>
       {/* Content */}
@@ -28,16 +27,14 @@ const Hero = () => {
               Hi. I’m Alvin Wiliawan
             </div>
             {/* Title */}
-            <div>
-              <div>
-                <span className='lg:display-title-bold display-title-mobile-bold'>
-                  FRONT<span className={charm.className}>END </span>
-                  DEVELOPER
-                </span>
+            <header>
+              <div className='lg:display-title-bold display-title-mobile-bold'>
+                FRONT<span className={charm.className}>END </span>
+                DEVELOPER
               </div>
-            </div>
+            </header>
             {/* Description */}
-            <div className='text-lg-regular text-justify text-neutral-400'>
+            <div className='text-lg-regular text-neutral-400'>
               Passionate about frontend development, I focus on crafting digital
               products that are visually polished, performance-optimized, and
               deliver a consistent experience across all platforms.
@@ -45,6 +42,7 @@ const Hero = () => {
             <Link href={'#contact'}>
               <Button className='h-14 w-full md:w-71.75'>
                 <Image
+                  priority
                   src={'/icons/mail.svg'}
                   alt='mail'
                   width={16}

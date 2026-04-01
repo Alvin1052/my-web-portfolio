@@ -3,7 +3,7 @@ import React from 'react';
 import Section from '@/components/Layout/Section';
 import GridRows from '@/components/TrustVoice-Grid';
 
-const TrustedVoice = () => {
+export default function TrustedVoice() {
   return (
     <Section
       title='Trusted Voices'
@@ -14,6 +14,4 @@ const TrustedVoice = () => {
       <GridRows />
     </Section>
   );
-};
-
-export default TrustedVoice;
+}

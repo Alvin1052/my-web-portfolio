@@ -1,7 +1,8 @@
 import Section from '@/components/Layout/Section';
 import TableCompare from '@/components/TableOfComplement';
+import React from 'react';
 
-const MyType = () => {
+export default function MyType() {
   return (
     <div className='relative'>
       <Section
@@ -22,6 +23,4 @@ const MyType = () => {
       <div className='bg-hero-pattern absolute top-0 left-0 z-1 h-full w-full' />
     </div>
   );
-};
-
-export default MyType;
+}

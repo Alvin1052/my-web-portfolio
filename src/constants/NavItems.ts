@@ -4,6 +4,7 @@ interface NavbarProps {
 }
 
 export const NavItems: NavbarProps[] = [
+  { label: 'Home', href: '/' },
   { label: 'About', href: '#about' },
   { label: 'Tools', href: '#tools' },
   { label: 'Projects', href: '#projects' },

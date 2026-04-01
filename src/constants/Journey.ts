@@ -5,7 +5,7 @@ import RevoU from '../../public/images/Journey-RevoU.png';
 import Hannochs from '../../public/images/Journey-Hannochs.png';
 import RJGF from '../../public/images/Journey-RJGF.png';
 import WPH from '../../public/images/Journey-WPH.svg';
-interface Journey {
+export interface Journey {
   title: string;
   year: string;
   description: string;

@@ -1,11 +1,11 @@
+'use client';
 import { useEffect, useRef, useState } from 'react';
 import useMedia from 'use-media';
 
 import { JourneyList } from '@/constants/Journey';
-import { cn } from '@/lib/utils';
 
+import JourneyCard from './journeyCard';
 import { Button } from './ui/button';
-import Card from './ui/card';
 
 const CarouselJourney = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -79,17 +79,7 @@ const CarouselJourney = () => {
           }}
         >
           {JourneyList.map((item, index) => (
-            <div
-              key={index}
-              className={cn(
-                'to-primary-300/50 relative flex w-full snap-start items-center justify-center from-black from-0% to-100% p-0.5 hover:bg-gradient-to-br',
-                ` max-w-[${itemWidth}px]`
-              )}
-              id='carousel-item'
-            >
-              <Card {...item} className='h-full w-full bg-black' />
-              <div className='bg-primary-300 absolute top-0 left-0 h-17 w-0.75 translate-y-6' />
-            </div>
+            <JourneyCard key={index} item={item} itemWidth={itemWidth} />
           ))}
         </div>
       </div>

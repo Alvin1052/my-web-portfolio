@@ -1,6 +1,7 @@
+'use client';
 import { MessageSquareText } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import useMedia from 'use-media';
 
 import { Button } from '@/components/ui/button';
@@ -8,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { FaqList } from '@/constants/Faqlist';
 import { cn } from '@/lib/utils';
 
-const Faq = () => {
+const Faq: React.FC = () => {
   const IsLarge: boolean = useMedia({ minWidth: '1024px' });
   const cardRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -48,7 +49,7 @@ const Faq = () => {
         {/* Title */}
         <div className='flex w-full flex-col items-start justify-start gap-6.25 lg:flex-row lg:items-center lg:justify-between'>
           {/* Text Title */}
-          <div>
+          <>
             <div className='display-md-bold md:display-xl-bold text-neutral-25'>
               Still got Question
             </div>
@@ -56,7 +57,7 @@ const Faq = () => {
               I’ve listed answers to questions I often get as a frontend
               developer.
             </div>
-          </div>
+          </>
           {/* Button */}
           <div className='flex gap-3'>
             {/* Prev Button */}

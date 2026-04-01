@@ -2,11 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Section from '@/components/Layout/Section';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 import { PortfolioList } from '@/constants/Portfolio';
 
-const Portfolio = () => {
+export default function Portfolio() {
   return (
     <Section
       title='Bridging Design and Development'
@@ -16,36 +15,35 @@ const Portfolio = () => {
       position='center'
       className='relative'
     >
-      <div className='flex flex-col items-start justify-between gap-4 lg:flex-row'>
-        {PortfolioList.map((item) => (
-          <Link
-            href={item.link}
-            key={item.title}
-            className='group w-full rounded-2xl transition-all duration-300 ease-in-out hover:scale-105'
-          >
-            <div className='flex w-[361px] flex-col gap-4 md:w-full'>
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={250}
-                height={250}
-                className='size-[361px] rounded-xl object-cover object-top lg:size-[266px]'
-              />
+      <ul className='flex flex-col items-start justify-between gap-4 lg:flex-row'>
+        {PortfolioList.map((item, index) => (
+          <li key={index}>
+            <Link
+              href={item.link}
+              className='group w-full rounded-2xl transition-all duration-300 ease-in-out hover:scale-105'
+            >
+              <div className='flex w-[361px] flex-col gap-4 md:w-full'>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={250}
+                  height={250}
+                  className='size-[361px] rounded-xl object-cover object-top lg:size-[266px]'
+                />
 
-              <div className='flex flex-col gap-1'>
-                <div className='text-xl-semibold line-clamp-1 text-ellipsis text-white'>
-                  {item.title}
-                </div>
-                <div className='text-md-regular text-neutral-400'>
-                  {item.year}
+                <div className='flex flex-col gap-1'>
+                  <div className='text-xl-semibold line-clamp-1 text-ellipsis text-white'>
+                    {item.title}
+                  </div>
+                  <div className='text-md-regular text-neutral-400'>
+                    {item.year}
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </Section>
   );
-};
-
-export default Portfolio;
+}

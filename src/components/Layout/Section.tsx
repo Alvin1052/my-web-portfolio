@@ -2,8 +2,6 @@ import { motion } from 'motion/react';
 import React from 'react';
 
 import { cn } from '@/lib/utils';
-import { title } from 'process';
-import { id } from 'zod/v4/locales';
 
 interface SectionProps {
   title: string;
@@ -27,15 +25,15 @@ const Section: React.FC<SectionProps> = ({
   ...props
 }) => {
   return (
-    <motion.section
+    <section
       id={id}
       className={cn(
         `${container ? 'custom-container' : ''} relative overflow-hidden py-10 md:py-20`,
         className
       )}
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, when: 'beforeChildren' }}
+      // initial={{ opacity: 0, y: 10 }}
+      // animate={{ opacity: 1, y: 0 }}
+      // transition={{ duration: 0.5, when: 'beforeChildren' }}
       {...props}
     >
       {/* Heading */}
@@ -67,7 +65,7 @@ const Section: React.FC<SectionProps> = ({
       <div className={cn('flex-center mt-6 md:mt-12', className)}>
         {children}
       </div>
-    </motion.section>
+    </section>
   );
 };
 
