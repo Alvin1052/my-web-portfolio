@@ -118,7 +118,7 @@ const ContactUs: React.FC = () => {
               </div>
               <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey={process.env.RECAPTCHA_SITE_KEY ?? ''}
+                sitekey='6Le5eMssAAAAAM5oZMwtMwJoO8vy-VWkzdRGtptM'
                 onChange={handleCaptchaChange}
               />
 
