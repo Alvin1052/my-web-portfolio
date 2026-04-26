@@ -291,6 +291,7 @@ img {
   user-select: none; /* Prevent selection */
   touch-action: none; /* Disable touch gestures */
   -webkit-user-select: none; /* For Safari */
+  pointer-events: none;
 }
 
 @layer utilities {
