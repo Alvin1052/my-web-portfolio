@@ -6,6 +6,7 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { ToolItems } from '@/constants/tools';
 import Link from 'next/link';
 import React from 'react';
+import { Download, DownloadIcon } from 'lucide-react';
 
 const UsedTools: React.FC = () => {
   return (
@@ -22,15 +23,15 @@ const UsedTools: React.FC = () => {
               into real products.
             </p>
           </div>
-          <Link href='#contact' className='w-full'>
+          {/* Button */}
+          <Link
+            className='hidden w-full md:block'
+            href='/downloads/resume.pdf'
+            download={"Alvin's Resume.pdf"}
+          >
             <Button className='h-14 w-full'>
-              <Image
-                src={'/icons/mail.svg'}
-                alt='mail'
-                width={16}
-                height={16}
-              />
-              Send Message
+              <DownloadIcon className='size-6' />
+              Download Resume
             </Button>
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-
+import image_Profile from '../../../public/images/Profile-Image1.jpeg';
 import SocialMedia from '@/components/SocialMedia';
 
 import { ProfileItem } from '@/constants/ProfileItem';
@@ -9,12 +9,12 @@ const Profile: React.FC = () => {
   return (
     <section
       id='about'
-      className='custom-container dur flex w-[361px] flex-col gap-6 py-10 md:w-full md:gap-12 md:py-20'
+      className='custom-container flex w-full min-w-[361px] flex-col gap-6 py-10 md:w-full md:gap-12 md:py-20'
     >
       {/* Title */}
-      <div className='flex flex-col justify-between gap-6 md:flex-row'>
+      <div className='flex flex-col justify-between gap-6 lg:flex-row'>
         {/* Left side */}
-        <div className='md:display-xl-bold display-md-bold text-justify md:w-195'>
+        <div className='md:display-xl-bold display-md-bold md:max-w-195'>
           I turn ideas and designs into functional, accessible, and performant
           websites {''}
           <span className='text-primary-300'>
@@ -42,7 +42,13 @@ const Profile: React.FC = () => {
             height: 'clamp(26.19rem, 42.75vw, 32.06rem)',
           }}
         >
-          <Image src={'/images/Profile-Image.png'} alt='Profile' fill />
+          <Image
+            src={image_Profile}
+            alt='Profile'
+            fill
+            priority
+            className='rounded-2xl object-cover'
+          />
         </div>
 
         {/* Content */}

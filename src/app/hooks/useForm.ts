@@ -24,7 +24,6 @@ export const useForms = () => {
     try {
       const response = await api.post('/auth/form', data); // data setelah hit disini lgsg masuk ke validasi Server-Side dan mereturn hasil dari backend
 
-      console.log(response);
       setIsSuccess(true);
       reset();
     } catch (error: any) {

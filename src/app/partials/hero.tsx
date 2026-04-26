@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 
-import Gambar from '../../assets/images/personal.png';
+import Gambar from '../../../public/images/Personal1.png';
 import Link from 'next/link';
 import React from 'react';
 
@@ -20,15 +20,22 @@ const Hero: React.FC = () => {
         {/* Text */}
         <div className='md:flex-[7] md:basis-[80px] md:translate-x-[140px] md:translate-y-[73px]'>
           <div
-            className='flex flex-col gap-4 md:gap-6 lg:gap-8'
-            style={{ width: 'clamp(22.56rem, 47.50vw, 42.75rem)' }}
+            className='flex w-full flex-col gap-4 px-4 md:gap-6 lg:gap-8'
+            style={{ width: 'clamp(22.56rem, 45vw, 42.75rem)' }}
           >
             <div className='text-md-regular md:text-xl-regular'>
               Hi. I’m Alvin Wiliawan
             </div>
             {/* Title */}
             <header>
-              <div className='lg:display-title-bold display-title-mobile-bold'>
+              <div
+                className='font-bold'
+                style={{
+                  fontSize: 'clamp(3.5rem, 8vw, 6rem)',
+                  letterSpacing: '-6%',
+                  lineHeight: 'clamp(3rem, 6.67vw, 5rem)',
+                }}
+              >
                 FRONT<span className={charm.className}>END </span>
                 DEVELOPER
               </div>
@@ -59,7 +66,15 @@ const Hero: React.FC = () => {
           className='md:flex-[3] md:-translate-x-[73px]'
           style={{ width: 'clamp(15.75rem, 23.68vw, 21.31rem)' }}
         >
-          <Image src={Gambar} alt='hero' width={341} height={671} />
+          {Gambar && (
+            <Image
+              src={Gambar}
+              alt='hero'
+              width={341}
+              height={671}
+              fetchPriority='high'
+            />
+          )}
         </div>
       </div>
 

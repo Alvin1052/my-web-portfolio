@@ -15,7 +15,7 @@ export default function Portfolio() {
       position='center'
       className='relative'
     >
-      <ul className='flex flex-col items-start justify-between gap-4 lg:flex-row'>
+      <ul className='flex w-full flex-col items-center justify-between gap-4 md:flex-row'>
         {PortfolioList.map((item, index) => (
           <li key={index}>
             <Link
@@ -31,8 +31,8 @@ export default function Portfolio() {
                   className='size-[361px] rounded-xl object-cover object-top lg:size-[266px]'
                 />
 
-                <div className='flex flex-col gap-1'>
-                  <div className='text-xl-semibold line-clamp-1 text-ellipsis text-white'>
+                <div className='flex w-full flex-col gap-1'>
+                  <div className='text-xl-semibold text-truncate line-clamp-1 text-white'>
                     {item.title}
                   </div>
                   <div className='text-md-regular text-neutral-400'>

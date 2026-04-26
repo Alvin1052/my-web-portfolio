@@ -18,14 +18,10 @@ const useLogin = () => {
   } = useForm<TLoginScheme>({ resolver: zodResolver(loginScheme) });
 
   const onSubmit = async (data: TLoginScheme) => {
-    console.log('input', data);
     setServerError(null);
     setIsFailed(false);
     setIsSuccess(false);
     try {
-      const response = await api.post('/auth/login', data);
-      console.log(response.data.message);
-
       reset();
       setIsSuccess(true);
     } catch (error: any) {

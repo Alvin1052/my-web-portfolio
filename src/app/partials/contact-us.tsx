@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 
 import { useForms } from '../hooks/useForm';
 import { Personal } from '@/constants/personal-data';
-import { Download, Mail } from 'lucide-react';
+import { Download, DownloadIcon, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 const ContactUs: React.FC = () => {
@@ -177,7 +177,7 @@ const ContactUs: React.FC = () => {
                 download={"Alvin's Resume.pdf"}
                 className='flex h-full items-center justify-start gap-2'
               >
-                <Download />
+                <DownloadIcon className='size-6' />
                 <div className='hidden h-full border border-neutral-200 md:block' />
                 <div>Check My Resume</div>
               </a>

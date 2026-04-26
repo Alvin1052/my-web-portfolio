@@ -20,7 +20,6 @@ const Faq: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const handleNext = () => {
-    console.log('next');
     setCurrentIndex((prev) => (prev + 1) % totalItems);
   };
 
@@ -59,7 +58,7 @@ const Faq: React.FC = () => {
             </div>
           </>
           {/* Button */}
-          <div className='flex gap-3'>
+          <div className='hidden gap-3 md:flex'>
             {/* Prev Button */}
             <Button
               id='prevBtn'

@@ -258,7 +258,7 @@
 @layer components {
   .custom-container {
     margin: 0 auto;
-    @apply max-w-360 px-4 md:pr-30 md:pl-30;
+    @apply max-w-360 px-4 md:px-30;
   }
   .bg-hero-pattern {
     background-image: url('/pattern/hero-pattern.png');
@@ -281,7 +281,7 @@
     background-size: 20%;
   }
   .custom-container {
-    @apply max-w-[393px];
+    @apply min-w-[393px];
   }
 }
 

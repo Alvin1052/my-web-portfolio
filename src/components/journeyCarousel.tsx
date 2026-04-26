@@ -10,12 +10,29 @@ import { Button } from './ui/button';
 const CarouselJourney = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const IsLarge = useMedia({ minWidth: '1024px' });
+  const [windowWidth, setWindowWidth] = useState<number>(() =>
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  const isWidth = useMedia({ minWidth: '1200px' });
+  const IsLarge = useMedia({ minWidth: '768px' });
+  const containerPadding = IsLarge ? 120 : 16;
   const totalItems = JourneyList.length;
   const itemWidth = IsLarge ? 564 : 361; // Width of each item in pixels
   const ItemGap = IsLarge ? 20 : 20;
-  const barWidth = IsLarge ? 1200 : 400;
+
+  const barWidth = isWidth ? 1200 : windowWidth - containerPadding * 2;
+
+  const widthOfTotalCarousel =
+    itemWidth * JourneyList.length + ItemGap * (JourneyList.length - 1);
+
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % totalItems);
   };
@@ -27,6 +44,7 @@ const CarouselJourney = () => {
   useEffect(() => {
     const carousel = carouselRef.current;
     const scroll = scrollRef.current;
+
     if (!carousel) return;
     if (!scroll) return;
 
@@ -75,7 +93,7 @@ const CarouselJourney = () => {
           style={{
             display: 'flex',
             gap: `${ItemGap}px`,
-            width: `${itemWidth * JourneyList.length + ItemGap * (JourneyList.length - 1)}px`,
+            width: `${widthOfTotalCarousel}px`,
           }}
         >
           {JourneyList.map((item, index) => (
