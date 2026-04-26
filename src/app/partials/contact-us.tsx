@@ -128,7 +128,7 @@ const ContactUs: React.FC = () => {
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey='6Le5eMssAAAAAM5oZMwtMwJoO8vy-VWkzdRGtptM' // Replace with your actual site key
-                onChange={() => handleCaptchaChange}
+                onChange={handleCaptchaChange}
               />
             </form>
           </div>

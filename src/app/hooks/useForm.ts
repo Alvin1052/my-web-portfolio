@@ -40,6 +40,7 @@ export const useForms = () => {
   };
   const resetCaptcha = () => recaptchaRef.current?.reset();
   const onSubmit = async (data: TFormScheme) => {
+    event?.preventDefault();
     if (isCaptchaVerified) {
       alert('CAPTCHA verified, form submitted!');
       mutate(data);
