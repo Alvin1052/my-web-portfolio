@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import ProviderComponent from './main-provider';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -49,7 +50,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='scroll-smooth'>
-      <body className={cn(inter.variable, 'antialiased')}>{children}</body>
+      <body className={cn(inter.variable, 'antialiased')}>
+        <ProviderComponent>{children}</ProviderComponent>
+      </body>
     </html>
   );
 }

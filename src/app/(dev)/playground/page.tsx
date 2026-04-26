@@ -1,96 +1,91 @@
 'use client';
-import { Charm } from 'next/font/google';
-import Image from 'next/image';
 
-import Carouseltest from '@/components/experiment/Carouseltest';
-import Announcement from '@/components/experiment/dialog';
-import TableTest from '@/components/experiment/tabletest';
-import CarouselJourney from '@/components/journeyCarousel';
-import GridRows from '@/components/TrustVoice-Grid';
+import { useForms } from '@/app/hooks/useForm';
 import { Button } from '@/components/ui/button';
+import { Mail } from 'lucide-react';
 
-const charm = Charm({
-  weight: '400',
-  subsets: ['latin'],
-  style: ['normal'],
-});
 const PlaygoundPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    onSubmit,
+    isSuccess,
+    isError,
+    reset,
+  } = useForms();
+
   return (
-    <div className='flex flex-col gap-6 py-10'>
-      <div className='custom-container relative'>
-        {/* Content */}
-        <div className='relative z-50 mb-15 flex flex-col-reverse items-center justify-center gap-6 md:mb-21 md:flex-row'>
-          {/* Text */}
-          <div className='md:flex-[7] md:basis-[80px] md:translate-x-[140px] md:translate-y-[73px]'>
-            <div
-              className='flex flex-col gap-8 md:gap-15.5'
-              style={{ width: 'clamp(22.56rem, 47.50vw, 42.75rem)' }}
-            >
-              <div className='flex flex-col gap-4 md:gap-8'>
-                <div className='text-md-regular md:text-xl-regular'>
-                  Hi. I’m Alvin Wiliawan
-                </div>
-                <div>
-                  <div>
-                    <span className='md:display-title-bold display-title-mobile-bold'>
-                      FRONT<span className={charm.className}>END </span>
-                      DEVELOPER
-                    </span>
-                  </div>
-                </div>
-                <div className='text-lg-regular text-neutral-400'>
-                  Passionate about frontend development, I focus on crafting
-                  digital products that are visually polished,
-                  performance-optimized, and deliver a consistent experience
-                  across all platforms.
-                </div>
-              </div>
-              <Button className='w-full md:w-71.75'>
-                <Image
-                  src={'/icons/mail.svg'}
-                  alt='mail'
-                  width={16}
-                  height={16}
-                />
-                Hire Me
-              </Button>
-            </div>
-          </div>
-
-          {/* Picture */}
-          <div
-            className='md:flex-[3] md:-translate-x-[73px]'
-            style={{ width: 'clamp(15.75rem, 23.68vw, 21.31rem)' }}
-          >
-            <Image
-              src={'/images/personal.png'}
-              alt='hero'
-              width={341}
-              height={671}
-            />
-          </div>
-        </div>
-
-        <div className='to-primary-300/50 absolute top-0 left-0 z-10 h-full w-full bg-gradient-to-tl from-black from-50% to-100%' />
-        <div className='bg-hero-pattern absolute top-0 left-0 z-1 h-full w-full' />
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className='flex w-full flex-col gap-5'
+    >
+      {/* Name */}
+      <div className='flex flex-col gap-1.5'>
+        <label
+          id='labelName'
+          htmlFor='name'
+          className='text-sm-regular text-neutral-25'
+        >
+          Name
+        </label>
+        <input
+          {...register('name')}
+          type='text'
+          placeholder='Enter your name'
+          className='text-md-medium h-12 border border-neutral-900 px-4 py-2.25 text-neutral-600 focus:text-neutral-300 focus:outline-none'
+        />
+        {errors.name && (
+          <p className='mt-1 text-xs text-red-500'>{errors.name.message}</p>
+        )}
       </div>
-      <div className='custom-container relative'>
-        <TableTest />
+      {/* Email */}
+      <div className='flex flex-col gap-1.5'>
+        <label
+          id='labelEmail'
+          htmlFor='email'
+          className='text-sm-regular text-neutral-25'
+        >
+          Email
+        </label>
+        <input
+          {...register('email')}
+          type='text'
+          placeholder='Enter your email'
+          className='text-md-medium h-12 border border-neutral-900 px-4 py-2.25 text-neutral-600 focus:text-neutral-300 focus:outline-none'
+        />
+        {errors.email && (
+          <p className='mt-1 text-xs text-red-500'>{errors.email.message}</p>
+        )}
       </div>
-      <div className='custom-container relative'>
-        <CarouselJourney />
-      </div>
-      <div className='custom-container relative'>
-        <GridRows />
-      </div>
-      <div className='custom-container relative'>
-        <Carouseltest />
+      {/* Message */}
+      <div className='flex flex-col gap-1.5'>
+        <label
+          id='labelMessage'
+          htmlFor='message'
+          className='text-sm-regular text-neutral-25'
+        >
+          Message
+        </label>
+        <textarea
+          {...register('message')}
+          placeholder='Enter your message'
+          className='text-md-medium h-33.5 border border-neutral-900 px-4 py-2.25 text-neutral-600 focus:text-neutral-300 focus:outline-none'
+        />
+        {errors.message && (
+          <p className='mt-1 text-xs text-red-500'>{errors.message.message}</p>
+        )}
       </div>
 
-      <div className='mx-auto'>
-        <Announcement />
-      </div>
-    </div>
+      <Button
+        type='submit'
+        className='group text-sm-semibold h-14 bg-white text-black hover:text-neutral-100'
+      >
+        <Mail width={24} height={24} />
+
+        {isSubmitting ? 'Sending...' : 'Send Message'}
+      </Button>
+    </form>
   );
 };
 

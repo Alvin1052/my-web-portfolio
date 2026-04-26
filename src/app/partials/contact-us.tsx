@@ -1,39 +1,37 @@
 'use client';
-import Image from 'next/image';
-import React from 'react';
 import SocialMedia from '@/components/SocialMedia';
 import {
-  AlertDialogHeader,
   AlertDialog,
   AlertDialogAction,
   AlertDialogContent,
+  AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import React from 'react';
 
-import { useForms } from '../hooks/useForm';
 import { Personal } from '@/constants/personal-data';
-import { Download, DownloadIcon, Mail } from 'lucide-react';
+import { DownloadIcon, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { useForms } from '../hooks/useForm';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const ContactUs: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-
     onSubmit,
-    serverError,
     isSuccess,
-    isFailed,
-    setIsFailed,
-    setIsSuccess,
+    isError,
+    handleOpen,
+    isOpen,
+    isPending,
+    recaptchaRef,
+    handleCaptchaChange,
   } = useForms();
 
-  const handleClose = () => {
-    setIsFailed(false);
-    setIsSuccess(false);
-  };
   return (
     <section id='contact' className='relative pb-10'>
       <div className='custom-container relative z-50 md:pt-20 md:pb-30'>
@@ -125,8 +123,13 @@ const ContactUs: React.FC = () => {
               >
                 <Mail width={24} height={24} />
 
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isPending ? 'Sending...' : 'Send Message'}
               </Button>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey='6Le5eMssAAAAAM5oZMwtMwJoO8vy-VWkzdRGtptM' // Replace with your actual site key
+                onChange={() => handleCaptchaChange}
+              />
             </form>
           </div>
 
@@ -184,11 +187,13 @@ const ContactUs: React.FC = () => {
             </Button>
           </div>
         </div>
+
         <div>
           <DialogBox
+            isOpen={isOpen}
             isSuccess={isSuccess}
-            isFailed={isFailed}
-            handleClose={() => handleClose()}
+            isFailed={isError}
+            handleClose={() => handleOpen()}
           />
         </div>
       </div>
@@ -201,6 +206,7 @@ const ContactUs: React.FC = () => {
 export default ContactUs;
 
 interface dialogboxprops {
+  isOpen: boolean;
   isSuccess: boolean;
   isFailed: boolean;
   handleClose: () => void;
@@ -209,9 +215,10 @@ const DialogBox: React.FC<dialogboxprops> = ({
   isSuccess,
   isFailed,
   handleClose,
+  isOpen,
 }) => {
   return (
-    <AlertDialog open={isSuccess || isFailed}>
+    <AlertDialog open={isOpen}>
       <AlertDialogHeader hidden />
       <AlertDialogTitle />
       <AlertDialogContent
