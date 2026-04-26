@@ -6,10 +6,10 @@ import { useForm } from 'react-hook-form';
 import { formScheme, TFormScheme } from '../lib/validation/form';
 import { useRef, useState } from 'react';
 import { ReCAPTCHA } from 'react-google-recaptcha';
-const service_id = 'service_vydb4qs';
-const template_id = 'template_pzzqpmi';
-const public_key = 'CVOZu9gAgT3Dw3kHu';
-const ReCAPTCHASiteKey = '6Le5eMssAAAAAM5oZMwtMwJoO8vy-VWkzdRGtptM';
+
+const EMAIL_SERVICE_ID = 'service_vydb4qs';
+const EMAIL_TEMPLATE_ID = 'template_pzzqpmi';
+const EMAIL_PUBLIC_KEY = 'CVOZu9gAgT3Dw3kHu';
 export const useForms = () => {
   const {
     register,
@@ -41,12 +41,12 @@ export const useForms = () => {
   const resetCaptcha = () => recaptchaRef.current?.reset();
   const onSubmit = async (data: TFormScheme) => {
     event?.preventDefault();
-    if (isCaptchaVerified) {
-      alert('CAPTCHA verified, form submitted!');
-      mutate(data);
-    } else {
-      alert('Please verify the CAPTCHA before submitting.');
-    }
+    // if (isCaptchaVerified) {
+    //   mutate(data);
+    // } else {
+    //   alert('Please verify the CAPTCHA before submitting.');
+    // }
+    mutate(data);
   };
 
   const handleOpen = () => setIsOpen(!isOpen);
@@ -64,7 +64,6 @@ export const useForms = () => {
     isPending,
     handleCaptchaChange,
     recaptchaRef,
-    ReCAPTCHASiteKey,
   };
 };
 
@@ -76,7 +75,7 @@ const Api = api.create({
 });
 
 const sentEmail = async (data: TFormScheme) => {
-  emailjs.init({ publicKey: public_key });
+  emailjs.init({ publicKey: EMAIL_PUBLIC_KEY });
 
   const payload = {
     ...data,
@@ -84,9 +83,9 @@ const sentEmail = async (data: TFormScheme) => {
   };
 
   var xx = {
-    service_id: service_id,
-    template_id: template_id,
-    user_id: public_key,
+    service_id: EMAIL_SERVICE_ID,
+    template_id: EMAIL_TEMPLATE_ID,
+    user_id: EMAIL_PUBLIC_KEY,
     template_params: payload,
   };
   const response = await Api.post('/', JSON.stringify(xx));

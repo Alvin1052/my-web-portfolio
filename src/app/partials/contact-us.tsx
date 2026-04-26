@@ -116,6 +116,11 @@ const ContactUs: React.FC = () => {
                   </p>
                 )}
               </div>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.RECAPTCHA_SITE_KEY ?? ''}
+                onChange={handleCaptchaChange}
+              />
 
               <Button
                 type='submit'
@@ -125,11 +130,6 @@ const ContactUs: React.FC = () => {
 
                 {isPending ? 'Sending...' : 'Send Message'}
               </Button>
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey='6Le5eMssAAAAAM5oZMwtMwJoO8vy-VWkzdRGtptM' // Replace with your actual site key
-                onChange={handleCaptchaChange}
-              />
             </form>
           </div>
 
