@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import ProviderComponent from './main-provider';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -50,6 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='scroll-smooth'>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GTM_ID ?? ''} />
       <body className={cn(inter.variable, 'antialiased')}>
         <ProviderComponent>{children}</ProviderComponent>
       </body>
