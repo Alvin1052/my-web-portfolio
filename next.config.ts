@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+  experimental: {
+    globalNotFound: true,
+  },
 };
 
 export default nextConfig;

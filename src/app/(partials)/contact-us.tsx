@@ -14,8 +14,9 @@ import React from 'react';
 import { Personal } from '@/constants/personal-data';
 import { DownloadIcon, Mail } from 'lucide-react';
 import Link from 'next/link';
-import { useForms } from '../hooks/useForm';
+
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useForms } from '@/hooks/useForm';
 
 const ContactUs: React.FC = () => {
   const {
@@ -175,7 +176,7 @@ const ContactUs: React.FC = () => {
             </div>
             {/* Button Download CV */}
             <Button className='h-10 w-fit rounded-lg'>
-              <a
+              <Link
                 href='/downloads/resume.pdf'
                 download={"Alvin's Resume.pdf"}
                 className='flex h-full items-center justify-start gap-2'
@@ -183,7 +184,7 @@ const ContactUs: React.FC = () => {
                 <DownloadIcon className='size-6' />
                 <div className='hidden h-full border border-neutral-200 md:block' />
                 <div>Check My Resume</div>
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

@@ -9,13 +9,11 @@ export const BaseUrl = 'https://my-web-portfolio-swart-seven.vercel.app/';
 const tools: string[] = ToolItems.map((item) => item.name);
 
 export const metadataKeyword = [
-  ...tools,
   'alvin wiliawan',
-  'front end developer',
-  'web developer',
-  'Nextjs Developer',
-  'Jakarta',
-  'Indonesia',
+  'frontend developer indonesia',
+  'web developer indonesia',
+  'Nextjs Developer indonesia',
+  'Reactjs Developer indonesia',
 ];
 
 export const Profile_metadata: Metadata = {

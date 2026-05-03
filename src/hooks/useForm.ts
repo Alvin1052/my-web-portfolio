@@ -3,9 +3,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import api from 'axios';
 import { useForm } from 'react-hook-form';
-import { formScheme, TFormScheme } from '../lib/validation/form';
+
 import { useRef, useState } from 'react';
 import { ReCAPTCHA } from 'react-google-recaptcha';
+import { TFormScheme, formScheme } from '@/lib/validation/form';
 
 const EMAIL_SERVICE_ID = 'service_vydb4qs';
 const EMAIL_TEMPLATE_ID = 'template_pzzqpmi';

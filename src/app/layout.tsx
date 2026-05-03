@@ -14,14 +14,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Portofolio | Alvin Wiliawan',
+  title: 'Alvin Wiliawan | Profile',
   description:
     'Experiences in Building Website as Front End Web Developer field with design Accuracy 99% as Figma Design From UI Designer using updated technology for better performance and user Experiences. Available for Freelance and Remote Work.',
   keywords: metadataKeyword,
   openGraph: {
-    title: 'Front End Developer in Indonesia',
-    description: 'Best Front End Developer in Indonesia',
-    siteName: BaseUrl,
+    title: "Alvin Wiliawan's Profile",
+    description:
+      'Experiences in Building Website as Front End Web Developer field with design Accuracy 99% as Figma Design From UI Designer using updated technology for better performance and user Experiences. Available for Freelance and Remote Work.',
+    siteName: "Alvin Wiliawan's Profile",
+    images: 'icons/logo.ico',
     locale: 'en_US',
     type: 'website',
   },

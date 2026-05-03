@@ -27,7 +27,7 @@ const UsedTools: React.FC = () => {
           <Link
             className='hidden w-full md:block'
             href='/downloads/resume.pdf'
-            download={"Alvin's Resume.pdf"}
+            target='_blank'
           >
             <Button className='h-14 w-full'>
               <DownloadIcon className='size-6' />
